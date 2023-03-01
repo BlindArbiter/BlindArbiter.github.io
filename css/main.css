@@ -794,7 +794,7 @@ svg.loading {
   font-size: 14px;
 }
 .loading-wrap.error:after {
-  content: '列车有点忙，请稍后重试。';
+  content: '列车有点拥挤，请稍后重新上车。';
 }
 pre:not([class]):has(>code) {
   display: block;
