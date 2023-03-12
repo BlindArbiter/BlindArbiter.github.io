@@ -3387,6 +3387,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   overflow: hidden;
   padding: 0.75em;
   text-align: center;
+  text-decoration: none;
 }
 .proj-wrap a.item svg {
   margin-right: 0.5em;
