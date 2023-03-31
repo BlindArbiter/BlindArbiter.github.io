@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang='zh_CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>HTML—CSS - BlindArbiter</title>
+
+  
+    <meta name="description" content="我们一般用css来改变样式，实现样式和结构相分离">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML—CSS">
+<meta property="og:url" content="https://blindarbiter.github.io/2023/03/05/HTML-css/index.html">
+<meta property="og:site_name" content="BlindArbiter">
+<meta property="og:description" content="我们一般用css来改变样式，实现样式和结构相分离">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box1.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box2.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box3.png">
+<meta property="article:published_time" content="2023-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-26T02:21:04.453Z">
+<meta property="article:author" content="BlindArbiter">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box1.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blindarbiter.github.io/about/avatar.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">BlindArbiter</div><div class="sub cap">人生苦短，不必设限</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">HTML—CSS</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">一、选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%80%89%E6%8B%A9%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 选择器分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%80%89%E6%8B%A9%E5%99%A8%E6%9D%83%E9%87%8D"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 选择器权重</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二、盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%86%85%E5%AE%B9%E5%8C%BAcontent"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 内容区content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%86%85%E8%BE%B9%E8%B7%9Dpadding"><span class="toc-number">2.2.</span> <span class="toc-text">3.2 内边距padding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%BE%B9%E6%A1%86border"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 边框border</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%A4%96%E8%BE%B9%E8%B7%9Dmargin"><span class="toc-number">2.4.</span> <span class="toc-text">3.4 外边距margin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.5.</span> <span class="toc-text">3.5 怪异盒子模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%97%E4%BD%93%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">三、字体文本样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 字体样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 文本样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">四、背景属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2background-color"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 背景颜色background-color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87background-image"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 背景图片background-image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%83%8C%E6%99%AF%E5%B9%B3%E9%93%BAbackground-repeat"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 背景平铺background-repeat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%9B%BE%E7%89%87%E4%BD%8D%E7%BD%AEbackground-position"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 图片位置background-position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8background-size"><span class="toc-number">4.5.</span> <span class="toc-text">3.5 图片尺寸background-size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E8%83%8C%E6%99%AF%E9%99%84%E7%9D%80background-attachment"><span class="toc-number">4.6.</span> <span class="toc-text">3.6 背景附着background-attachment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%92%8Cimg%E6%A0%87%E7%AD%BE%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">4.7.</span> <span class="toc-text">3.7 背景图片和img标签的对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%80%E4%BA%9B%E8%A1%A5%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">五、一些补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%9C%86%E8%A7%92%E8%BE%B9%E6%A1%86border-radius"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 圆角边框border-radius</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E9%98%B4%E5%BD%B1box-shadow"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 阴影box-shadow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%80%8F%E6%98%8E-opacity"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 透明 opacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E6%B8%90%E5%8F%98%E8%89%B2"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 渐变色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E9%BC%A0%E6%A0%87%E6%A0%B7%E5%BC%8Fcursor"><span class="toc-number">5.5.</span> <span class="toc-text">5.5 鼠标样式cursor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E5%AE%9A%E4%BD%8D"><span class="toc-number">5.6.</span> <span class="toc-text">5.6 定位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E7%BA%A7"><span class="toc-number">5.6.1.</span> <span class="toc-text">层级</span></a></li></ol></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/BlindArbiter" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a><a class="social" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>HTML—CSS</span></h1>
+<p>我们一般用css来改变样式，实现样式和结构相分离</p>
+<span id="more"></span>
+
+<p>css代码分为<strong>外部样式、内部样式、行内样式</strong>三种写法。</p>
+<ul>
+<li><p><strong>外部样式</strong>（推荐👍）</p>
+<p>单独创建<code>.css</code>后缀的文件，通过<code>link标签</code>引入，link通常放置于头部：</p>
+<p>rel表示link标签的类型，值为’stylesheet’时起到牵线搭桥的作用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&#x27;stylesheet&#x27;</span> <span class="attr">href</span>=<span class="string">&#x27;路径&#x27;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>内部样式</strong></p>
+<p>通过style标签写在HTML内部，利用选择器选择，样式设置</p>
+</li>
+<li><p><b name="style1">行内样式</b></p>
+<p>直接写在标签属性中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;css代码&quot;</span>&gt;</span>这里是一些段落文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="一、选择器"><a href="#一、选择器" class="headerlink" title="一、选择器"></a>一、<span name='selector'>选择器</span></h2><p>写在<code>&lt;style&gt; &lt;/style&gt;</code>里，可以把它理解为中间商(?)</p>
+<ul>
+<li>id与class命名<ul>
+<li>id命名唯一，单个标签不允许多个id名，同页面中不存出现重复的id名，重名会影响js代码获取标签</li>
+<li>class命名不唯一，单个标签可以拥有多个class名，不同标签允许使用相同class名</li>
+</ul>
+</li>
+<li>注意一些命名规范<ul>
+<li>允许大小写字母和数字，必须以字母开头，单词一般小写；</li>
+<li>见名知意，不允许单个字母做名字，各命名词汇英文参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33852020/article/details/94478222">命名词汇</a></li>
+<li>单词之间使用<code>-</code>号连词或者驼峰连词（具体看目标网页或者具体公司的整体规范）</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-选择器分类"><a href="#1-1-选择器分类" class="headerlink" title="1.1 选择器分类"></a>1.1 选择器分类</h3><table>
+<thead>
+<tr>
+<th>基础选择器</th>
+<th>写法</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通配符选择器（指所有标签）</td>
+<td>*</td>
+<td><code>*&#123; margin:0; padding:0; &#125;</code></td>
+</tr>
+<tr>
+<td>标签选择器</td>
+<td>标签名</td>
+<td><code>div&#123; width:50px; height:50px; &#125;</code></td>
+</tr>
+<tr>
+<td>class类选择器</td>
+<td>.class类名</td>
+<td><code>.nav&#123; width:20px; &#125;</code></td>
+</tr>
+<tr>
+<td>id选择器</td>
+<td>#id名</td>
+<td><code>#id1&#123; width:50px; &#125;</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>复合选择器</th>
+<th>写法</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后代选择器（非固定父子关系）</td>
+<td>父  子  孙…</td>
+<td><code>.nav div a&#123; margin:10px; &#125;</code></td>
+</tr>
+<tr>
+<td>子代选择器（只会选取儿子）</td>
+<td>父 &gt; 子</td>
+<td><code>div&gt;a&#123; color:red; &#125;</code></td>
+</tr>
+<tr>
+<td>组合选择器（多选择器同一样式）</td>
+<td>选择器 , 选择器</td>
+<td><code>.nav p,#id1 a&#123; font-size: 12px; &#125;</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>伪类选择器</th>
+<th>写法</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>链接伪类（鼠标悬停）</td>
+<td>:hover</td>
+<td><code>a:hover&#123;color:red;&#125;</code></td>
+</tr>
+<tr>
+<td>链接伪类（鼠标点击选中）</td>
+<td>:active</td>
+<td><code>p:active&#123;color:blue;&#125;</code></td>
+</tr>
+<tr>
+<td>表单获得焦点时被选中</td>
+<td>:focus</td>
+<td><code>input:focus &#123;background-color: green; &#125;</code></td>
+</tr>
+</tbody></table>
+<h3 id="1-2-选择器权重"><a href="#1-2-选择器权重" class="headerlink" title="1.2 选择器权重"></a>1.2 选择器权重</h3><p>问题来了，如果一个标签被多个选择器赋予了相同的属性且值不一样时，这个标签在网页会显示哪种属性🤔</p>
+<p>举个例子🌰：此时<code>.nav</code>和<code>p</code>都选中了这个p标签，且规定了不同颜色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*css代码文件*/</span></span><br><span class="line"><span class="selector-class">.nav</span>&#123;<span class="attribute">color</span>: red;&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;<span class="attribute">color</span>: blue;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--HTML代码文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;nav&quot;</span>&gt;</span>这是一段文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里就出来一个概念：选择器权重，顾名思义，这句文本最终颜色就要根据选择器的优先级决定。</p>
+<ul>
+<li><code>!important</code>可标识该选择器最高权重</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:red <span class="meta">!important</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="tag-plugin note" color="warning"><div class="title"><b>选择器权重：</div><div class="body"><p>!important &gt; id &gt; class类|伪类 &gt; 标签 &gt; 通配符 &gt; 继承样式 </b></p></div></div>
+
+<ul>
+<li>先比较权重，权重一样比较各级别选择器出现的次数</li>
+<li>当多个选择器权重一样时，以最后出现的为准</li>
+</ul>
+<h2 id="二、盒子模型"><a href="#二、盒子模型" class="headerlink" title="二、盒子模型"></a>二、盒子模型</h2><p>在HTML中，标签都是一个长方形模型，每一个html标签都可以看成一个盒子</p>
+<ul>
+<li>盒子模型包含内容区(content)、内边距(padding)、边框(border)、外边距(margin)</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box1.png"></p>
+<ul>
+<li><p>在开发者模式中可以看到该网页的盒子模型</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box2.png"></p>
+</li>
+</ul>
+<h3 id="3-1-内容区content"><a href="#3-1-内容区content" class="headerlink" title="3.1 内容区content"></a>3.1 内容区content</h3><p>见名知意，即放置内容（或者说标签） </p>
+<p>其大小可由盒子中的内容撑开，或者设置 <code>width height</code> 属性来指定固定的大小。</p>
+<p>px是一种像素单位</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red; <span class="comment">/*在开发的时候或许可以先添加着背景色便于观察(?)*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个小建议：<br>在布局时，除非迫不得已，任何盒子不要设定死高度，由着盒子内容自己把盒子撑大就好啦</p>
+<h3 id="3-2-内边距padding"><a href="#3-2-内边距padding" class="headerlink" title="3.2 内边距padding"></a>3.2 内边距padding</h3><p>盒子内容和边框的距离</p>
+<p>padding属性接收长度值或百分比值，但不接收负值：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">10px</span>;   <span class="comment">/*上内边距*/</span></span><br><span class="line">    <span class="attribute">padding-right</span>: <span class="number">10px</span>;  <span class="comment">/*右内边距*/</span></span><br><span class="line">    <span class="attribute">padding-bottom</span>: <span class="number">5px</span>; <span class="comment">/*下内边距*/</span></span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">5px</span>;    <span class="comment">/*左内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>padding属性可用一个属性表示四个方位的值，看接收值个数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1、上下左右 全部10px*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">padding</span>: <span class="number">10px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*2、上下10px、左右20px*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*3、上10px、左右20px、下30px*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*4、上10px、右20px、下30px、左40px*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">40px</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-边框border"><a href="#3-3-边框border" class="headerlink" title="3.3 边框border"></a>3.3 边框border</h3><p>可由统一的border属性来规定边框，这三个值顺序可以打乱：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*border: border-width、border-style、border-color */</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">border</span>: <span class="number">5px</span> solid red; &#125; </span><br></pre></td></tr></table></figure>
+
+<p>也可分解属性表示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">10px</span> solid red;</span><br><span class="line">  <span class="attribute">border-right</span>: <span class="number">5px</span> solid red;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">10px</span> solid red;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">5px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以进一步分解为border-width、border-style、border-color</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1.全部方位*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid; </span><br><span class="line">  <span class="attribute">border-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*2、单个方位*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">border-top-width</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">border-top-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-top-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>边框线常用类型</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>无边框</td>
+</tr>
+<tr>
+<td>solid</td>
+<td>实线</td>
+</tr>
+<tr>
+<td>dotted</td>
+<td>点状边框</td>
+</tr>
+<tr>
+<td>dashed</td>
+<td>虚线</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双线（宽度=border-width的值）</td>
+</tr>
+</tbody></table>
+<h3 id="3-4-外边距margin"><a href="#3-4-外边距margin" class="headerlink" title="3.4 外边距margin"></a>3.4 外边距margin</h3><p>盒子和盒子之间的距离</p>
+<p>margin属性的值和padding很类似，不过margin允许负值</p>
+<p>margin的左右还多了auto值，可以用来将盒子在父级中自动居中</p>
+<h3 id="3-5-怪异盒子模型"><a href="#3-5-怪异盒子模型" class="headerlink" title="3.5 怪异盒子模型"></a>3.5 怪异盒子模型</h3><p>上面说的盒子模型就是标准盒<br>形象地说的话，如果说标准盒是个外向的喜欢向外分享的小盒子，那么怪异盒就是个内向的小盒子(?)🤔</p>
+<p>怪异盒子的width和height都=content + border + padding<br>怪异盒模型下盒子大小 = width (content + border + padding) + margin</p>
+<p>其实就是当我们设置一个怪异盒及其大小时，如果后面调整了border或者padding的大小，那么content部分大小会随之自动调整，整个盒子不会膨胀</p>
+<p>设置怪异盒子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-sizing: border-box</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、字体文本样式"><a href="#三、字体文本样式" class="headerlink" title="三、字体文本样式"></a>三、字体文本样式</h2><h3 id="2-1-字体样式"><a href="#2-1-字体样式" class="headerlink" title="2.1 字体样式"></a>2.1 字体样式</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>字体颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>字体大小</td>
+<td>单位px</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>字体粗细</td>
+<td>normal正常 blod粗 bolder更粗 lighter更细 (或者100-900整百数数值)</td>
+</tr>
+<tr>
+<td>font-famliy</td>
+<td>字体名称</td>
+<td></td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>字体样式</td>
+<td>normal正常 <em>italic 斜体</em></td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>行高</td>
+<td>normal默认合理的行间距 / 数值大小=行间距</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>复合写法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*font: 斜体 粗细 字体大小/行高 字体类型; */</span></span><br><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-tag">body</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attribute">font</span>: italic <span class="number">700</span> <span class="number">16px</span>/normal <span class="string">&#x27;HarmonyOS_Regular&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字体大小和行高必须用<code>/</code>合在一起，不能分开；</li>
+</ul>
+</li>
+<li><p>字体大小和字体类型必写，除此之外省略某些项也不会影响后面其它属性。</p>
+</li>
+</ul>
+<h3 id="2-2-文本样式"><a href="#2-2-文本样式" class="headerlink" title="2.2 文本样式"></a>2.2 文本样式</h3><ul>
+<li><p><strong>水平对齐方式</strong>   text-align</p>
+<table>
+<thead>
+<tr>
+<th>text-align：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>居左对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>right</td>
+<td>居右对齐</td>
+</tr>
+<tr>
+<td>justify</td>
+<td>两端对齐</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>大小写</strong>   text-transform</p>
+<table>
+<thead>
+<tr>
+<th>text-transform：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>默认值</td>
+</tr>
+<tr>
+<td>uppercase</td>
+<td>全部转化大写</td>
+</tr>
+<tr>
+<td>lowercase</td>
+<td>全部转化小写</td>
+</tr>
+<tr>
+<td>capitalize</td>
+<td>首字母转换为大写</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>文本线</strong>   text-decoration</p>
+<table>
+<thead>
+<tr>
+<th>text-decoration：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>没有文本线</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>中划线</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>上划线</td>
+</tr>
+</tbody></table>
+<ul>
+<li>text-decoration-color: 划线颜色</li>
+<li>text-decoration-style:划线转态<ul>
+<li>dotted点状线、dashed 虚线、solid 实线、double 双边框、wavy：波浪线</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>其他属性</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>overflow</td>
+<td>文本溢出显示方式</td>
+<td>auto显示滚动条  hidden隐藏</td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>首行缩进</td>
+<td>带单位的长度值（px / em）</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>字间距</td>
+<td></td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>单词间距</td>
+<td></td>
+</tr>
+<tr>
+<td>white-space</td>
+<td>换行方式</td>
+<td>normal默认正常换行   nowrap文本不换行</td>
+</tr>
+<tr>
+<td>word-break</td>
+<td>长单词换行方式</td>
+<td>normal默认换行方式<br />break-all允许在单词内换行 <br />keep-all只能在半角空格或连字符处换行</td>
+</tr>
+<tr>
+<td>user-select</td>
+<td>选中设置</td>
+<td>auto自由选择  none不能选择  all全部选中</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="四、背景属性"><a href="#四、背景属性" class="headerlink" title="四、背景属性"></a>四、背景属性</h2><p>background是一个复合属性，用于设置盒子的背景颜色或背景图片。</p>
+<p>复合写法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backgorund: color image repeat position/size attachment;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-背景颜色background-color"><a href="#3-1-背景颜色background-color" class="headerlink" title="3.1 背景颜色background-color"></a>3.1 背景颜色background-color</h3><p>背景色默认是会延伸到border下方的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">background-color: 颜色;</span><br><span class="line"><span class="comment">&lt;!--默认 transparent透明--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-背景图片background-image"><a href="#3-2-背景图片background-image" class="headerlink" title="3.2 背景图片background-image"></a>3.2 背景图片background-image</h3><p>背景图片默认也是会延伸到border下方的</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1、默认不插入背景图*/</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">background-image</span>: none; &#125;</span><br><span class="line"><span class="comment">/*2、插入背景图 */</span></span><br><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&quot;路径&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
+
+<p>背景与内容的层叠关系如图：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/web%E5%BC%80%E5%8F%91/box3.png"></p>
+<h3 id="3-3-背景平铺background-repeat"><a href="#3-3-背景平铺background-repeat" class="headerlink" title="3.3 背景平铺background-repeat"></a>3.3 背景平铺background-repeat</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123; <span class="attribute">background-repeat</span>: 值; &#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>repeat</td>
+<td>默认背景图片平铺</td>
+</tr>
+<tr>
+<td>no-repeat</td>
+<td>背景图片不平铺</td>
+</tr>
+<tr>
+<td>repeat-x</td>
+<td>背景图片水平平铺</td>
+</tr>
+<tr>
+<td>repeat-y</td>
+<td>背景图片垂直平铺</td>
+</tr>
+</tbody></table>
+<h3 id="3-4-图片位置background-position"><a href="#3-4-图片位置background-position" class="headerlink" title="3.4 图片位置background-position"></a>3.4 图片位置background-position</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:X Y;</span><br></pre></td></tr></table></figure>
+
+<p>X Y 默认0 0, 取值可以是像素px或者百分比%<br>X Y 还可以取的值：<br>X：left左对齐、center水平居中、right右对齐<br>Y：top顶部对齐、center垂直居中、bottom底部对齐</p>
+<p>如果只给一个值，那么另一个值默认center（50%）</p>
+<h3 id="3-5-图片尺寸background-size"><a href="#3-5-图片尺寸background-size" class="headerlink" title="3.5 图片尺寸background-size"></a>3.5 图片尺寸background-size</h3><p>通常用于在不改变图片宽高比的情况下，铺满盒子。</p>
+<table>
+<thead>
+<tr>
+<th>background-size:</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>X Y</td>
+<td>X Y值默认对应原图 宽 高</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>等比例缩放直到铺满X轴和Y轴</td>
+</tr>
+<tr>
+<td>contain</td>
+<td>等比例缩放直到铺满X或Y轴其中一个</td>
+</tr>
+</tbody></table>
+<h3 id="3-6-背景附着background-attachment"><a href="#3-6-背景附着background-attachment" class="headerlink" title="3.6 背景附着background-attachment"></a>3.6 背景附着background-attachment</h3><table>
+<thead>
+<tr>
+<th>background-attachment:</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll</td>
+<td>默认，背景随滚动而滚动</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>背景不随滚动而滚动</td>
+</tr>
+</tbody></table>
+<h3 id="3-7-背景图片和img标签的对比"><a href="#3-7-背景图片和img标签的对比" class="headerlink" title="3.7 背景图片和img标签的对比"></a>3.7 背景图片和img标签的对比</h3><ul>
+<li>背景图片不占用content内容部分，而img标签会占用。</li>
+<li>背景图片大小如果超出盒子不会显示，而img标签如果超出父级盒子默认是会超出显示的。</li>
+<li>背景图片：给盒子内容部分加背景，或者加一些小图标项目符号等<br>img标签：具体想表达的一个图片信息、希望搜索引擎能检索到对应的图片信息</li>
+</ul>
+<h2 id="五、一些补充"><a href="#五、一些补充" class="headerlink" title="五、一些补充"></a>五、一些补充</h2><h3 id="5-1-圆角边框border-radius"><a href="#5-1-圆角边框border-radius" class="headerlink" title="5.1 圆角边框border-radius"></a>5.1 圆角边框border-radius</h3><p>取值通常为像素px或者百分比</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*全部角：*/</span></span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">10%</span>;</span><br><span class="line"><span class="comment">/*分解单个角*/</span></span><br><span class="line"><span class="attribute">border-top-left-radius</span>: <span class="number">10px</span> <span class="number">30px</span>;</span><br></pre></td></tr></table></figure>
+
+<p>复合写法：</p>
+<table>
+<thead>
+<tr>
+<th>border-radius：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一个值 10px</td>
+<td>全部角</td>
+</tr>
+<tr>
+<td>两个值 10px 20px</td>
+<td>左上右下 || 右上左下</td>
+</tr>
+<tr>
+<td>三个值 10px 20px 30px</td>
+<td>左上 || 右上左下 || 右下</td>
+</tr>
+<tr>
+<td>四个值 10px 20px 30px 40px</td>
+<td>左上 || 右上|| 右下 || 左下</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-阴影box-shadow"><a href="#5-2-阴影box-shadow" class="headerlink" title="5.2 阴影box-shadow"></a>5.2 阴影box-shadow</h3><p>盒子阴影，让盒子四周产生阴影；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> red outset;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">值1：水平偏移（必需）</span></span><br><span class="line"><span class="comment">值2：垂直偏移（必需）</span></span><br><span class="line"><span class="comment">值3：模糊距离（可选，默认0） 从扩散边缘开始，向外逐渐模糊的距离</span></span><br><span class="line"><span class="comment">值4：扩散距离（可选，默认0） 规则从何处开始模糊，默认0即盒子边，大于0则会看到阴影明显漏出，允许负值</span></span><br><span class="line"><span class="comment">值5：隐藏颜色（可选，默认黑色）</span></span><br><span class="line"><span class="comment">值6：阴影扩散方向（可选，默认ouset向外扩展，可以改为inset向内扩展）</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-透明-opacity"><a href="#5-3-透明-opacity" class="headerlink" title="5.3 透明 opacity"></a>5.3 透明 opacity</h3><p>取值 0—1（完全透明——完全不透明）</p>
+<h3 id="5-4-渐变色"><a href="#5-4-渐变色" class="headerlink" title="5.4 渐变色"></a>5.4 渐变色</h3><ul>
+<li><p>线性渐变</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*百分比值也可以用确却的像素值代替*/</span></span><br><span class="line"><span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(red <span class="number">100%</span>, blue <span class="number">0%</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5-5-鼠标样式cursor"><a href="#5-5-鼠标样式cursor" class="headerlink" title="5.5 鼠标样式cursor"></a>5.5 鼠标样式cursor</h3><p>属性规定鼠标移入元素时的样式</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>url</td>
+<td>自定义光标的URL。(请在此列表的末端始终定义一种普通光标，以防没有由URL定义的可用光标。)</td>
+</tr>
+<tr>
+<td>default</td>
+<td>默认光标（通常是一个箭头）</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>默认值。浏览器设置的光标。</td>
+</tr>
+<tr>
+<td>crosshair</td>
+<td>光标呈现为十字线。</td>
+</tr>
+<tr>
+<td>pointer</td>
+<td>光标呈现为指示链接的指针（一只手）</td>
+</tr>
+<tr>
+<td>move</td>
+<td>此光标指示某对象可被移动。</td>
+</tr>
+<tr>
+<td>text</td>
+<td>此光标指示文本。</td>
+</tr>
+<tr>
+<td>wait</td>
+<td>此光标指示程序正忙（通常是一只表或沙漏）。</td>
+</tr>
+<tr>
+<td>help</td>
+<td>此光标指示可用的帮助（通常是一个问号或一个气球）。</td>
+</tr>
+</tbody></table>
+<h3 id="5-6-定位"><a href="#5-6-定位" class="headerlink" title="5.6 定位"></a>5.6 定位</h3><p>position属性，可以将元素从文档流中取出，然后使用方位词（left top right bottom）精准控制它的位置。<br>不同的定位值可以使元素拥有不同的表现形式，例如放在另外一个元素上面或者固定在浏览器的显示区某个位置。</p>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">relative</td>
+<td align="left">生成相对定位的元素，相对于其正常位置进行定位。</td>
+</tr>
+<tr>
+<td align="left">absolute</td>
+<td align="left">生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。</td>
+</tr>
+<tr>
+<td align="left">fixed</td>
+<td align="left">生成绝对定位的元素，相对于浏览器窗口进行定位。</td>
+</tr>
+<tr>
+<td align="left">static</td>
+<td align="left">默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>相对定位 relative</p>
+<p>相对于原有位置的定位，通过<strong>方位属性</strong>进行<strong>相对于原位置</strong>的偏移。</p>
+<p>（定位元素才有的方位属性： top | bottom | left | right，值一般使用px单位或%值。）</p>
+<blockquote>
+<p>特点：</p>
+<ul>
+<li>不脱离文档流</li>
+<li>不影响元素本身的任何特性</li>
+<li>如果不加方位词偏移也没有任何影响</li>
+</ul>
+</blockquote>
+</li>
+<li><p>绝对定位 absolute</p>
+<p>能让元素脱离文档流 (原地起飞…(?))，使用方位属性相对于<strong>最近的有定位的父级</strong>元素进行偏移；</p>
+<p><strong>注意！方位属性初始值不是0，而是auto。</strong></p>
+<p><strong>left和top优先级比right和bottom高，比如一个元素既拥有left也拥有right，最终位置以left为准。</strong></p>
+<blockquote>
+<p>特点：</p>
+<ul>
+<li>脱离文档流</li>
+<li>元素宽高默认值为0</li>
+<li>上级盒子中得有一个盒子作为载体，找不到最近的定位父级则相对于body标签</li>
+<li>会将元素转换成块元素</li>
+<li>设置了绝对定位，没有设置层级；html后写居上</li>
+<li>margin:auto 会暂时失效</li>
+</ul>
+</blockquote>
+</li>
+<li><p>fixed</p>
+<p>固定定位能让元素脱离文档流，使用方位属性相对于<strong>浏览器可视区</strong>进行偏移；</p>
+<blockquote>
+<p>特点：</p>
+<ul>
+<li>脱离文档流</li>
+<li>元素宽高默认值为0</li>
+<li>margin:auto 会失效</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h4><p>🌰问题又来了，定位元素之间，可能会出现覆盖问题，定位元素会遮挡住另一个定位元素</p>
+<p>那么当然是越后面出现的元素优先级越高，我们可以使用z-index层级属性来调整优先级。</p>
+<ul>
+<li>z-index属性只针对定位元素有效</li>
+<li>取值为一个整数数字，默认auto，可正可负</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/03/18/JavaScript%E5%9F%BA%E7%A1%80/">JavaScript(JS)—基础</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/03/02/HTML-%E5%9F%BA%E7%A1%80/">HTML-基础</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--��̬��������-->
+  <script type="text/javascript"
+    color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+</body>
+</html>
