@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://blindarbiter.github.io/img/Unity_Android/unityError2.png">
 <meta property="og:image" content="https://blindarbiter.github.io/img/Unity_Android/unityError0.png">
 <meta property="article:published_time" content="2023-03-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-03T11:16:08.869Z">
+<meta property="article:modified_time" content="2023-07-03T07:14:08.801Z">
 <meta property="article:author" content="BlindArbiter">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="Android">
@@ -129,7 +129,7 @@
 <span id="more"></span>
 
 <p>第一次参与写一个安卓项目，第一次使用Unity和Android Studio，第一次学习及编写C#脚本，第一次使用SQLite Manager……</p>
-<p>这个项目陆陆续续写了快一个月了，终于收尾了，记录一个踩坑最多、印象最深的</p>
+<p>这个项目陆陆续续写了快一个月了，终于收尾了，记录一个踩坑最多、印象最深的板块</p>
 <h2 id="Android-Studio-连接超时"><a href="#Android-Studio-连接超时" class="headerlink" title="Android Studio 连接超时"></a>Android Studio 连接超时</h2><ul>
 <li><p>改URL，改成阿里云的镜像</p>
 <p>在Gradle目录下的build.gradle中Google()和jcenter()中间增加</p>
@@ -236,7 +236,7 @@
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Unity_Android/apk_connect.png" style="zoom: 67%;" />
 
 <blockquote>
-<p>一开始找不到手机里的开发者模式，我的是小米，没关系我会变魔术<br>设置-我的设备-全部参数：点击MIUI五次就可以进入开发者模式，设置里也会多了开发者模式选项</p>
+<p>用的小米手机，一开始找不到手机里的开发者模式，没关系我会变魔术<br>设置-我的设备-全部参数：点击MIUI五次就可以进入开发者模式，设置里也会多了开发者模式选项</p>
 <p>一定要打开USB调试还有USB安装，不然会给你拦截😮</p>
 </blockquote>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Unity_Android/apk_install1.jpg" style="zoom: 33%;" />
@@ -259,10 +259,10 @@
 <p>这个问题应该是C#写数据库路径文件名没写对，或者是streamingAsset文件夹里没有数据库文件</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="string">&quot;Data Source = &quot;</span> + Application.streamingAssetsPath + <span class="string">&quot;/unity_users.db&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<p>我是连踩两坑😶</p>
+<p>连踩两坑😶</p>
 <blockquote>
-<p>一次是文件后缀名写成了.sqlite，导致后来运行脚本的时候，Unity给我新建了一个unity_users.sqlite文件，一开始我以为是Unity给我自动配置的文件所以没有管😓，<del>我反思，不该不管的</del></p>
-<p>第二次是改对了路径之后运行，给我报我的文件不是数据库的错误（<del>别问为什么没有截图，问就是忘了</del>）<br>是的，我给忘记了，我习惯用MySQL，且当时用的就是MySQL写的数据库文件，但是我用的SQLite接的Unity，（<del>其实在报错之前我都还觉得MySQL和SQLite没什么区别</del>）所以无非两个选择，一个是重新写C#脚本，改用MySQL接，另一个是写一个SQLite数据库文件。显然，我选择了后者，不就是学一下用SQLite Manager😴。</p>
+<p>一次是文件后缀名写成了.sqlite，导致后来运行脚本的时候，Unity给我新建了一个unity_users.sqlite文件，当时我以为是Unity给我自动配置的文件所以没有管😓，<del>我反思，不该不管的</del></p>
+<p>第二次是改对了路径之后运行，给我报我的文件不是数据库的错误（<del>别问为什么没有截图，问就是忘了</del>）<br>是的，我给忘记了，我只接触过MySQL，所以当时用的就是MySQL写的数据库文件，但是我用的SQLite接的Unity，（<del>其实在报错之前我都还觉得MySQL和SQLite没什么区别</del>）所以无非两个选择，一个是重新写C#脚本，改用MySQL接，另一个是写一个SQLite数据库文件。当然选择容易实现一点的，不就是学一下用SQLite Manager😴。</p>
 </blockquote>
 <h3 id="Sqlite-Error-SQLite-error-no-such-column"><a href="#Sqlite-Error-SQLite-error-no-such-column" class="headerlink" title="Sqlite Error:  SQLite error no such column"></a>Sqlite Error:  SQLite error no such column</h3><p>在插入数据到数据库时，注意Varchar类型的，在传入数据的时候要插入引号</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&#x27;&quot; + 你要插入的数据 + &quot;&#x27;&quot;</span><br></pre></td></tr></table></figure>
