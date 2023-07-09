@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/Error2.png">
 <meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/photo.png">
 <meta property="article:published_time" content="2023-02-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-28T12:08:23.880Z">
+<meta property="article:modified_time" content="2023-07-07T13:20:12.422Z">
 <meta property="article:author" content="BlindArbiter">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -127,11 +127,11 @@
 <blockquote>
 <p>看到 “文件中出现“这里，🤔</p>
 <p>说来好笑，对，我非常老实地去检查了上面列出来的一个个文件，然后发现这些文件全都是搭博客那天随着主题一起下载的文件，修改日期都是同一天同一个时候，我想着之前更新博客时也没报错，怎么现在更新博客却会报错，应该不是这些文件的问题。</p>
-<p><del>对，想得真好，但是我一身反骨。本着认真严谨的质疑精神和怀疑态度</del>，花了几天学习了下JavaScript，当我能看懂这些文件的大概之后，我又沉默了，因为文件真的没问题，<del>是我有问题</del>😯</p>
+<p><del>对，想得真好，但是我一身反骨。本着认真严谨的质疑精神和怀疑态度</del>，花了几天学习了下JavaScript，当我能看懂这些文件的大概之后，我又沉默了，因为文件真的没问题，<del>是我有问题</del>🤐</p>
 <p>于是向万能的互联网屈服了</p>
 </blockquote>
 <p>回到正题：</p>
-<p><strong>这是在发布文章时会出现的一种错误</strong><br><strong>一般是在文章中使用了大括号<code> &#123; &#125;</code> 这个特殊字符，且没有转义导致编译不通过</strong></p>
+<p><strong>这是在发布文章时会出现的一种错误</strong><br><strong>可能是在文章中使用了大括号<code> &#123; &#125;</code> 这个特殊字符，且没有转义导致编译不通过<del>（至少我是）</del></strong></p>
 <p>解决办法就是，先找到出现问题的文章，再对<code>&#123;&#125;</code>进行转义 或者 删掉其中的<code>&#123;&#125;</code></p>
 <h2 id="FATAL-Could-not-read-from-remote-repository"><a href="#FATAL-Could-not-read-from-remote-repository" class="headerlink" title="FATAL: Could not read from remote repository."></a>FATAL: Could not read from remote repository.</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/Error2.png"></p>
 <p>使用<code>hexo d</code>命令时报的生成错误。</p>
@@ -142,17 +142,22 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C “github用户名@github.com”</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>由于新建的博客看着实在太空了，于是就想着推篇文章充实充实</p>
-<p>本地浏览看的时候就发现图片全都被施展了消失魔法😢</p>
+<p>本地浏览看的时候就发现图片全都被施展了消失魔法😕</p>
 <ul>
 <li><p>原md文件插入的图片和html格式不兼容</p>
 <ul>
 <li>可以把第三条Typora里自带的图片插入的绝对路径改为相对路径（即第一条，注意<code>\</code>要改成<code>/</code>）</li>
 <li>也可以用<code>img标签</code>格式，属性<code>src=&#39;指定图片资源路径&#39;</code>（第二条）<br>还有width、height、alt、title等属性，<del>不过我一般都懒得调整就是了</del></li>
 </ul>
+</li>
+<li><p>区别如图：</p>
+</li>
+</ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/photo.png" alt="img"></p>
 <p>总之就是typora里能看到的图片一般都放不上网页，看不见的没写错格式和路径的一般都行👏</p>
-<p>还有放的封面图片，横幅图片等同理。</p>
-</li>
+<p>  还有放的封面图片，横幅图片等同理。</p>
+<ul>
+<li>要想本地看到图片blog也能看到，没问题，我们只需要把图上传到github，然后把图片路径改成github里图片的url就好啦🥳，这样可以不用考虑那么多标准，我每次发博客都会提前改掉图片路径，一块传完上去就都能看到啦（墙裂推荐👍）</li>
 </ul>
 <h2 id="迁移—RSS"><a href="#迁移—RSS" class="headerlink" title="迁移—RSS"></a>迁移—<code>RSS</code></h2><p>首先，安装 <code>hexo-migrator-rss</code> 插件。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-migrator-rss --save</span><br></pre></td></tr></table></figure>
@@ -203,7 +208,7 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/friends">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
   <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
