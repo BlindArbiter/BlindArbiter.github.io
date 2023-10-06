@@ -20,26 +20,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>MySQL踩坑笔记 - BlindArbiter</title>
+  <title>Git踩坑笔记 - BlindArbiter</title>
 
   
-    <meta name="description" content="不定期更新😴">
+    <meta name="description" content="不定期随机掉落更新😴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL踩坑笔记">
-<meta property="og:url" content="https://blindarbiter.github.io/2023/07/09/MySQL%E8%B8%A9%E5%9D%91/">
+<meta property="og:title" content="Git踩坑笔记">
+<meta property="og:url" content="https://blindarbiter.github.io/2023/06/28/Git%E8%B8%A9%E5%9D%91/">
 <meta property="og:site_name" content="BlindArbiter">
-<meta property="og:description" content="不定期更新😴">
+<meta property="og:description" content="不定期随机掉落更新😴">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="e:/NetworkSafety/blog/blog/source/img/Database/MySQL_connector3.png">
-<meta property="og:image" content="e:/NetworkSafety/blog/blog/source/img/Database/MySQL_connector1.png">
-<meta property="og:image" content="e:/NetworkSafety/blog/blog/source/img/Database/MySQL_connector2.png">
-<meta property="og:image" content="e:/NetworkSafety/blog/blog/source/img/Database/MySQL_connector4.png">
-<meta property="article:published_time" content="2023-07-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-10T08:43:57.137Z">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git_ssl1.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git_ssl3.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git_ssl2.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git1.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git2.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git3.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/hexo_blog/git4.png">
+<meta property="article:published_time" content="2023-06-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-12T12:36:02.243Z">
 <meta property="article:author" content="BlindArbiter">
-<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="e:/NetworkSafety/blog/blog/source/img/Database/MySQL_connector3.png">
+<meta name="twitter:image" content="https://blindarbiter.github.io/img/hexo_blog/git_ssl1.png">
   
   
 
@@ -92,7 +95,7 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">沒有找到內容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">MySQL踩坑笔记</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-Connector-NET-%E5%8D%B8%E8%BD%BD%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">MySQL Connector NET 卸载问题</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Git踩坑笔记</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">一些指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><span class="toc-number">2.</span> <span class="toc-text">0x01 OpenSSL SSL_read: Connection was reset, errno 10054</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-There-is-no-tracking-information-for-the-current-branch-Please-specify-which-branch-you-want-to-merge-with"><span class="toc-number">3.</span> <span class="toc-text">0x02 There is no tracking information for the current branch. Please specify which branch you want to merge with.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-refusing-to-merge-unrelated-histories"><span class="toc-number">4.</span> <span class="toc-text">0x03 refusing to merge unrelated histories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-error-%E2%80%98%E2%80%A6-%E2%80%98-does-not-have-a-commit-checked-out"><span class="toc-number">5.</span> <span class="toc-text">0x04 error: ‘…&#x2F;‘ does not have a commit checked out</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-git-push-%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84-Everything-up-to-date"><span class="toc-number">6.</span> <span class="toc-text">0x05 git push 时出现的 Everything up-to-date</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-Timed-out"><span class="toc-number">7.</span> <span class="toc-text">0x06 Timed out</span></a></li></ol></div></div></widget>
 
 
 
@@ -111,30 +114,78 @@
 
 
 <article class='md-text content post reveal'>
-<h1 class="article-title"><span>MySQL踩坑笔记</span></h1>
-<p>不定期更新😴</p>
+<h1 class="article-title"><span>Git踩坑笔记</span></h1>
+<p>不定期随机掉落更新😴</p>
 <span id="more"></span>
-<p>上次在Unity里接数据库用的是SQLite，这次试着用用MySQL</p>
-<h3 id="MySQL-Connector-NET-卸载问题"><a href="#MySQL-Connector-NET-卸载问题" class="headerlink" title="MySQL Connector NET 卸载问题"></a>MySQL Connector NET 卸载问题</h3><p>因为打算在VS里引用MySQL.Data.dll，于是下载了connector8.0.25，但是VS报错说不支持，</p>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="E:\NetworkSafety\blog\blog\source\img\Database\MySQL_connector3.png" style="zoom:50%;" />
+
+<div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><p>2023 年 7 月 3 日</p></div><div class="body fs14"><p>最近在用Git管理项目，又多踩了些坑</p></div></div><div class="timenode" index="1"><div class="header"><p>2023 年 6 月 20 日</p></div><div class="body fs14"><p>尝试用Git项目协作，版本控制，就记一些踩坑</p></div></div></div>
 
 
 
-<p>打算卸掉换一个版本，尝试过控制面板删除、火绒粉碎、注册表删除，但是都卸不掉😕</p>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="E:\NetworkSafety\blog\blog\source\img\Database\MySQL_connector1.png" style="zoom:50%;" />
 
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="E:\NetworkSafety\blog\blog\source\img\Database\MySQL_connector2.png"  style="zoom:50%;" />
 
-<p> 微软的支持里有个<a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d">Fix problems that block programs from being installed or removed - Microsoft Support</a>，点击<a target="_blank" rel="noopener" href="https://download.microsoft.com/download/7/E/9/7E9188C0-2511-4B01-8B4E-0A641EC2F600/MicrosoftProgram_Install_and_Uninstall.meta.diagcab">下载卸载疑难解答程序</a>；</p>
-<p>如果下载的时候浏览器显示这类文件可能会损害你的设备的话，可以换一个浏览器下载，之后打开选择卸载掉Connect NET就好了，其他应用有相同情况也可以用这个</p>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="E:\NetworkSafety\blog\blog\source\img\Database\MySQL_connector4.png"  style="zoom:50%;" />
+<h3 id="一些指令"><a href="#一些指令" class="headerlink" title="一些指令"></a>一些指令</h3><ul>
+<li>添加文件到暂存区：全部<code>git add .</code>   /  指定<code>git add 文件名.后缀</code></li>
+<li>提交修改：<code>git commit -m &quot;备注(可省)&quot;</code></li>
+<li>推送代码到仓库：<code>git pull</code></li>
+<li>推送代码到远程仓库：<code>git pull origin 想要推送的分支名</code></li>
+<li>获取更新：<code>git push</code></li>
+<li>本地新建分支：<code>git branch 新分支名字</code></li>
+<li>本地删除分支：<code>git branch -d 分支名字</code></li>
+<li>查看本地分支：<code>git branch </code></li>
+<li>查看远程分支：<code>git branch -r</code></li>
+<li>查看所有分支：<code>git branch -a</code></li>
+<li>查看本地分支与远程分支的映射关系：<code>git branch -vv</code> </li>
+<li>列出所有与当前Git仓库关联的远程仓库及URL：<code>git remote -v</code></li>
+</ul>
+<h3 id="0x01-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#0x01-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="0x01 OpenSSL SSL_read: Connection was reset, errno 10054"></a>0x01 OpenSSL SSL_read: Connection was reset, errno 10054</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git_ssl1.png"></p>
+<p>报错原因是我们的DNS被污染了，国内ping到的github.com可能是被篡改了，我们重新配置正确的ip就好了</p>
+<ol>
+<li><p>查询下面三个github相关域名ip：<a target="_blank" rel="noopener" href="https://www.ipaddress.com/">域名查询网址IPAddress.com</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">github.com</span><br><span class="line">github.global.ssl.fastly.net</span><br><span class="line">codeload.Github.com</span><br></pre></td></tr></table></figure></li>
+<li><p>打开<code>C:\Windows\System32\drivers\etc\hosts</code>，如果有的话检查域名是否正确，如果没有的话在末尾加上刚刚查的ip地址和域名，格式像这样：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git_ssl3.png"></p>
+<p>需要注意的是我们每次连不上可能就要改一遍ip地址，旧的地址要不就删掉要不就注释掉</p>
+</li>
+<li><p>cmd刷新DNS：<code>ipconfig /flushdns</code></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git_ssl2.png"></p>
+</li>
+</ol>
+<h3 id="0x02-There-is-no-tracking-information-for-the-current-branch-Please-specify-which-branch-you-want-to-merge-with"><a href="#0x02-There-is-no-tracking-information-for-the-current-branch-Please-specify-which-branch-you-want-to-merge-with" class="headerlink" title="0x02 There is no tracking information for the current branch. Please specify which branch you want to merge with."></a>0x02 There is no tracking information for the current branch. Please specify which branch you want to merge with.</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git1.png"></p>
+<p>在协作项目使用<code>git pull</code>出现的问题，因为本地的分支和远程的分支没有建立关联导致的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to=origin/远程分支名 本地分支名</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git2.png"></p>
+<p>再通过 <code>git branch -vv</code> 查看是否追踪成功</p>
+<p>撤销本地分支和远程分支的关系：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --unset-upstream</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="0x03-refusing-to-merge-unrelated-histories"><a href="#0x03-refusing-to-merge-unrelated-histories" class="headerlink" title="0x03 refusing to merge unrelated histories"></a>0x03 refusing to merge unrelated histories</h3><p>这个我是在使用<code>git pull</code>出现的问题，我认为应该是两个分支不同导致的，在后面加上<code>--allow-unrelated-histories</code> 允许合并就能更新下来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+<p>不过使用这条指令后会进入一个如下图所示的界面：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git3.png"></p>
+<p>可以直接关闭退出，反正已经更新好了，也可以在键盘上按<code>INS</code>键切换模式，可以在窗口最下面那行看到，切换到“insert”模式后按<code>ESC</code>键，输入 <code>:wq</code> 回车就会退出回到原来的界面。</p>
+<h3 id="0x04-error-‘…-‘-does-not-have-a-commit-checked-out"><a href="#0x04-error-‘…-‘-does-not-have-a-commit-checked-out" class="headerlink" title="0x04 error: ‘…/‘ does not have a commit checked out"></a>0x04 error: ‘…/‘ does not have a commit checked out</h3><p>报错原因是文件下面有隐藏文件，删掉就好了</p>
+<h3 id="0x05-git-push-时出现的-Everything-up-to-date"><a href="#0x05-git-push-时出现的-Everything-up-to-date" class="headerlink" title="0x05 git push 时出现的 Everything up-to-date"></a>0x05 git push 时出现的 Everything up-to-date</h3><p>在git push之前必须要先 <code>git commit -m &quot;&quot;</code></p>
+<h3 id="0x06-Timed-out"><a href="#0x06-Timed-out" class="headerlink" title="0x06 Timed out"></a>0x06 Timed out</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/hexo_blog/git4.png"></p>
+<p>一般像上面两种报错报错方式，问题在Git 所设端口与系统代理不一致</p>
+<ul>
+<li><p>可以选择关闭http/https网络代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure></li>
+<li><p>或者重新配置代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:自己的端口号</span><br><span class="line">git config --global https.proxy http://127.0.0.1:自己的端口号</span><br></pre></td></tr></table></figure></li>
+</ul>
+
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>授權條款</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">較新文章</div><a href="/2023/09/09/Qt/">Qt乱谈</a></div><div class="item" id="next"><div class="note">較早文章</div><a href="/2023/06/28/Git%E8%B8%A9%E5%9D%91/">Git踩坑笔记</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">較新文章</div><a href="/2023/07/09/MySQL%E8%B8%A9%E5%9D%91/">MySQL踩坑笔记</a></div><div class="item" id="next"><div class="note">較早文章</div><a href="/2023/03/29/Unity%E5%9C%A8Android%E4%B8%AD%E6%8E%A5%E5%85%A5SQLite%E6%95%B0%E6%8D%AE%E5%BA%93/">Unity在Android中接入SQLite数据库</a></div></section></div>
 
 
 
