@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://blindarbiter.github.io/img/Database/ERROR%202003_2.png">
 <meta property="og:image" content="https://blindarbiter.github.io/img/Database/ERROR.png">
 <meta property="article:published_time" content="2023-03-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-10T08:42:55.582Z">
+<meta property="article:modified_time" content="2023-12-18T13:15:29.881Z">
 <meta property="article:author" content="BlindArbiter">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -91,7 +91,7 @@
 
 
 <div class="widgets">
-<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div></div></widget>
 
 
 <widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">MySQL注册表迁移和两种服务模式的切换</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9MySQL%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AD%98%E6%94%BE%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">修改MySQL及数据存放位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">查看数据库文件存储位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">Data目录初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8MySQL%E6%9C%AC%E5%9C%B0%E7%B3%BB%E7%BB%9F%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">启动MySQL本地系统连接服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%B8%A9%E5%9D%91"><span class="toc-number">5.</span> <span class="toc-text">一些踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement"><span class="toc-number">5.1.</span> <span class="toc-text">ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-2003-HY000-Can%E2%80%99t-connect-to-MySQL-server-on-%E2%80%98localhost-3306%E2%80%99-10061"><span class="toc-number">5.2.</span> <span class="toc-text">ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost:3306’ (10061)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-1045-28000-Access-denied-for-user-%E2%80%98root%E2%80%98-%E2%80%99localhost%E2%80%99-using-password-YES"><span class="toc-number">5.3.</span> <span class="toc-text">ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-MySQL%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%90%8E%E5%81%9C%E6%AD%A2"><span class="toc-number">5.4.</span> <span class="toc-text">ERROR MySQL服务启动后停止</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#my-ini%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">my.ini配置文件</span></a></li></ol></div></div></widget>
@@ -110,7 +110,7 @@
 
 
 
-
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">博客</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%B8%A9%E5%9D%91/">踩坑</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%B8%A9%E5%9D%91/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2023-03-24T16:00:00.000Z">2023-03-25</time></div></div>
 
 <article class='md-text content post reveal'>
 <h1 class="article-title"><span>MySQL注册表迁移和两种服务模式的切换</span></h1>
@@ -193,12 +193,12 @@
 <p>我用的是mysql8，根据<code>mysqld --initialize --console</code>返回的信息修改了我原本的my.ini文件 提一些需要注意的点：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="comment"># 设置mysql的安装目录及data数据存放目录，注意这里要修改成自己mysql的路径及想要存放data的路径</span></span><br><span class="line"><span class="attr">basedir</span>=E:\lenovo\MySQL\MySQL Server <span class="number">8.0</span></span><br><span class="line"><span class="attr">datadir</span>=E:\lenovo\MySQL\MySQL Server <span class="number">8.0</span>\data</span><br><span class="line"><span class="comment"># 旧的服务端使用的字符集为utf8(utfmb3),新版本及未来版本为utf8mb4</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8mb4</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"><span class="comment"># default_authentication_plugin 功能已弃用</span></span><br><span class="line"><span class="comment">; default_authentication_plugin=mysql_native_password</span></span><br><span class="line"><span class="comment"># --ssl=off 也弃用了,新版本可以用下面的语句代替</span></span><br><span class="line"><span class="comment">;--tls-version=invalid</span></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment"># 设置mysql客户端默认字符集，同理</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="comment"># 设置mysql客户端连接服务端时默认使用的端口</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br></pre></td></tr></table></figure>
 
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/03/29/230329%20Unity%E5%9C%A8Android%E4%B8%AD%E6%8E%A5%E5%85%A5SQLite%E6%95%B0%E6%8D%AE%E5%BA%93/">Unity在Android中接入SQLite数据库</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/03/18/230318%20JavaScript%E5%9F%BA%E7%A1%80/">JavaScript—基础</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/03/29/230329%20Unity%E5%9C%A8Android%E4%B8%AD%E6%8E%A5%E5%85%A5SQLite%E6%95%B0%E6%8D%AE%E5%BA%93/">Unity在Android中接入SQLite数据库</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/03/18/230318%20JavaScript%E5%9F%BA%E7%A1%80/">JavaScript—基础</a></div></section></div>
 
 
 
@@ -318,11 +318,11 @@
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
   stellar.config = {
     date_suffix: {
-      just: '刚刚',
-      min: '分钟前',
-      hour: '小时前',
-      day: '天前',
-      month: '个月前',
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
     },
     root : '/',
   };
