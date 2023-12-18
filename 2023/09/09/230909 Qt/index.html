@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang='zh_CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>Qt乱谈 - BlindArbiter</title>
+
+  
+    <meta name="description" content="一些我学到的我用到的且跟C++有区别的地方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt乱谈">
+<meta property="og:url" content="https://blindarbiter.github.io/2023/09/09/230909%20Qt/">
+<meta property="og:site_name" content="BlindArbiter">
+<meta property="og:description" content="一些我学到的我用到的且跟C++有区别的地方">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Others/QT1.png">
+<meta property="article:published_time" content="2023-09-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-18T13:06:04.643Z">
+<meta property="article:author" content="BlindArbiter">
+<meta property="article:tag" content="Qt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blindarbiter.github.io/img/Others/QT1.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blindarbiter.github.io/about/avatar.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">BlindArbiter</div><div class="sub cap">人生苦短，不必设限</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Qt乱谈</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81QDubug"><span class="toc-number">1.</span> <span class="toc-text">1、QDubug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81-%E5%AF%B9%E8%B1%A1%E6%A0%91"><span class="toc-number">2.</span> <span class="toc-text">2、 对象树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD"><span class="toc-number">3.</span> <span class="toc-text">3、信号与槽</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD"><span class="toc-number">3.1.</span> <span class="toc-text">3.1、自定义信号和槽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">3.2、lambda表达式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">4、定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81QPainter-%E7%BB%98%E5%9B%BE%E4%BA%8B%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">5、QPainter 绘图事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81QVector-%E5%AE%B9%E5%99%A8-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84"><span class="toc-number">6.</span> <span class="toc-text">6、QVector 容器(动态数组)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81QSound-%E9%9F%B3%E4%B9%90%E9%9F%B3%E6%95%88"><span class="toc-number">7.</span> <span class="toc-text">7、QSound 音乐音效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">8.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%8A%A5%E9%94%99"><span class="toc-number">9.</span> <span class="toc-text">一些报错</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01-No-rule-to-make-target-%E2%80%98%E2%80%A6%E2%80%A6%E2%80%99-needed-by-%E2%80%98%E2%80%A6%E2%80%A6%E2%80%99-Stop"><span class="toc-number">9.1.</span> <span class="toc-text">0x01 No rule to make target ‘……’, needed by ‘……’. Stop.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x02-The-inferior-stopped-because-it-received-a-signal-from-the-operating-system"><span class="toc-number">9.2.</span> <span class="toc-text">0x02 The inferior stopped because it received a signal from the operating system.</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/BlindArbiter" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a><a class="social" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>Qt乱谈</span></h1>
+<p>一些我学到的我用到的且跟C++有区别的地方</p>
+<span id="more"></span>
+
+<p>先说Qt，一个完全面向对象的C++图形用户界面应用程序框架</p>
+<p>试图驯化Qt简单地开发个小游戏，程序到今天算是收尾了🧐</p>
+<h3 id="1、QDubug"><a href="#1、QDubug" class="headerlink" title="1、QDubug"></a>1、QDubug</h3><p>一个调试输出功能的库</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span> --声明头文件</span></span><br><span class="line"><span class="comment">//输出的一种最常用格式</span></span><br><span class="line"><span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;score:&quot;</span>&lt;&lt;score;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、-对象树"><a href="#2、-对象树" class="headerlink" title="2、 对象树"></a>2、 对象树</h3><ul>
+<li>QObject是以对象树的形式组织起来的<ul>
+<li>当我们创建一个QObject对象时，可以设置这个对象的父对象parent，这个被创建的对象会自动添加到其父对象的children()列表里（<b>注意此父对象非继承意义上的父类</b>）</li>
+</ul>
+</li>
+<li>当父对象析构的时候，其children()列表中的所有对象也会被析构</li>
+<li>QWidget是能够在屏幕上显示的一切组件的父类</li>
+<li>局部对象的析构顺序按照其创建顺序的相反过程</li>
+</ul>
+<h3 id="3、信号与槽"><a href="#3、信号与槽" class="headerlink" title="3、信号与槽"></a>3、信号与槽</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect(sender, signal, receiver, slot)</span><br><span class="line">connect(信号发送者, 发送的具体信号, 信号接受者, 信号的处理(槽函数))</span><br></pre></td></tr></table></figure>
+
+<p>优点：松散耦合，信号发送端和接收端本身无关联，通过connect连接耦合。</p>
+<ul>
+<li>信号和槽函数返回值是 void</li>
+<li>信号只需要声明，不需要实现，槽函数既要声明也需要实现</li>
+<li>断开信号 <code>disconnect()</code></li>
+</ul>
+<h4 id="3-1、自定义信号和槽"><a href="#3-1、自定义信号和槽" class="headerlink" title="3.1、自定义信号和槽"></a>3.1、自定义信号和槽</h4><ul>
+<li><p>自定义信号：emit发送信号—— <code>emit 对象指针-&gt;信号()</code></p>
+</li>
+<li><p>信号槽要求信号和槽的参数一致，所谓一致，是参数类型一致。</p>
+</li>
+<li><p>重载冲突：连接带参数的 信号与槽</p>
+<ul>
+<li>需要利用函数指针 -&gt; 明确指向的函数地址</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void(类1:: *函数指针1)(所带参数类型) = &amp;类1::信号1;</span><br><span class="line">void(类2:: *函数指针2)(所带参数类型) = &amp;类2::信号2;</span><br><span class="line">connect(sender, signal, receiver, slot);</span><br><span class="line">调用自定义信号函数Func();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无参信号和槽连接</span></span><br><span class="line"><span class="built_in">void</span>(Teacher:: *teacherSignal)(QString) = &amp;Teacher::signal1;</span><br><span class="line"><span class="built_in">void</span>(Student:: *studentSlot)(QString) = &amp;Student::slot1;</span><br><span class="line"><span class="built_in">connect</span>(ls,teacherSignal,xs,studentSlot);</span><br><span class="line"><span class="built_in">Func</span>();</span><br><span class="line"><span class="comment">// 按钮控制信号和槽 </span></span><br><span class="line">QPushButton * btn = <span class="keyword">new</span> <span class="built_in">QPushButton</span>(<span class="string">&quot;下课&quot;</span>,<span class="keyword">this</span>)</span><br><span class="line"><span class="built_in">connect</span>(btn,&amp;QPushButton::clicked,<span class="keyword">this</span>,&amp;Widge::Func)</span><br><span class="line"><span class="comment">// 信号连接信号</span></span><br><span class="line"><span class="built_in">connect</span>(btn,&amp;QPushButtomn,ls,teacherSignal)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2、lambda表达式"><a href="#3-2、lambda表达式" class="headerlink" title="3.2、lambda表达式"></a>3.2、lambda表达式</h4><p>用于定义和创建匿名的函数对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[函数对象参数](操作符重载函数参数)mutable-&gt;返回值&#123;函数体&#125;</span><br><span class="line">// 其中 mutable 看需求是否添加</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>函数对象参数</p>
+<table>
+<thead>
+<tr>
+<th><code>[]</code></th>
+<th>标识一个lambda的开始，<strong>不能省略</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[]</code></td>
+<td>没有使用任何函数对象参数</td>
+</tr>
+<tr>
+<td><code>[=]</code></td>
+<td>可使用lambda所在范围内所有可见的局部变量，<strong>值传递</strong></td>
+</tr>
+<tr>
+<td><code>[&amp;]</code></td>
+<td>可使用lambda所在范围内所有可见的局部变量，<strong>引用传递</strong></td>
+</tr>
+<tr>
+<td><code>[this]</code></td>
+<td>函数体内可使用lambda所在类中的成员变量</td>
+</tr>
+<tr>
+<td><code>[a]</code></td>
+<td>a按值传递，默认函数是const</td>
+</tr>
+<tr>
+<td><code>[&amp;a]</code></td>
+<td>a按引用传递</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="4、定时器"><a href="#4、定时器" class="headerlink" title="4、定时器"></a>4、定时器</h3><ul>
+<li><p>利用事件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">timerEvent</span><span class="params">(QTimeEvent * ev)</span></span>;</span><br><span class="line"><span class="comment">//启动定时器</span></span><br><span class="line"><span class="built_in">startTimer</span>(<span class="number">1000</span>) <span class="comment">// 参数1 间隔 单位毫秒</span></span><br><span class="line"><span class="comment">// 多个定时器</span></span><br><span class="line">id1 = <span class="built_in">startTimer</span>(<span class="number">1000</span>)</span><br><span class="line"><span class="keyword">if</span>(ev-&gt;<span class="built_in">timerId</span>()==id1)&#123; <span class="comment">// 判断唯一标示</span></span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> num = <span class="number">1</span>;</span><br><span class="line">    ui-&gt;label-&gt;<span class="built_in">setText</span>(QString::<span class="built_in">number</span>(num++));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>利用定时器类 <code>QTimer</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建定时器对象</span></span><br><span class="line"><span class="function">QTimer * <span class="title">timer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 启动定时器</span></span><br><span class="line">    timer-&gt;<span class="built_in">start</span>(<span class="number">1000</span>);</span><br><span class="line">    <span class="comment">// 停止定时器</span></span><br><span class="line">	<span class="comment">// timer-&gt;stop();</span></span><br><span class="line">    <span class="comment">// 发送timeout信号监听，lambda匿名函数实现</span></span><br><span class="line">    <span class="built_in">connect</span>(timer, QTimer::timeout, [=]()&#123;</span><br><span class="line">        <span class="type">static</span> <span class="type">int</span> num = <span class="number">1</span>;</span><br><span class="line">        ui-&gt;label-&gt;<span class="built_in">setText</span>(<span class="built_in">QString</span>(num++));</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5、QPainter-绘图事件"><a href="#5、QPainter-绘图事件" class="headerlink" title="5、QPainter 绘图事件"></a>5、QPainter 绘图事件</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明绘图事件</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">paintEvent</span><span class="params">(QPainEvent *)</span></span>;</span><br><span class="line"><span class="comment">// 实例化画家对象 this指的绘图设备</span></span><br><span class="line"><span class="function">QPainter <span class="title">painter</span><span class="params">(<span class="keyword">this</span>)</span></span>;</span><br><span class="line"><span class="comment">// 画图片</span></span><br><span class="line">painter.<span class="built_in">drawPixmap</span>(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> w,<span class="type">int</span> h,<span class="type">const</span> QPixmap &amp;pm);</span><br><span class="line">painter.<span class="built_in">drawPixmap</span>(<span class="built_in">QRect</span>(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> w,<span class="type">int</span> h),<span class="type">const</span> QPixmap &amp;pm);</span><br><span class="line"><span class="comment">// 如果要手动调用绘图事件，可用update()</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6、QVector-容器-动态数组"><a href="#6、QVector-容器-动态数组" class="headerlink" title="6、QVector 容器(动态数组)"></a>6、QVector 容器(动态数组)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;数据类型*&gt; 容器名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;类1 *&gt; vector1;  <span class="comment">// 装类1的容器vector1</span></span><br><span class="line">vector&lt;类1 *&gt;::iterator it;  <span class="comment">// 名为it的迭代器，可遍历和操作容器</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>遍历和操作容器</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=vector1.<span class="built_in">begin</span>();it!=vector1.<span class="built_in">end</span>();)&#123;</span><br><span class="line">        <span class="keyword">if</span>((*it)-&gt;<span class="built_in">done</span>())&#123;</span><br><span class="line">            it=vector1.<span class="built_in">erase</span>(it);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>erase()</code>：从容器中删除指定位置的元素，并返回指向被删除元素之后位置的迭代器</p>
+<h3 id="7、QSound-音乐音效"><a href="#7、QSound-音乐音效" class="headerlink" title="7、QSound 音乐音效"></a>7、QSound 音乐音效</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在导入QSound时，需要先在 .pro工程文件中加入</span></span><br><span class="line">QT += multimedia</span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;QSound&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QSound::play(音乐);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><ul>
+<li><p><code>QString -&gt; char *</code>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先转成 QByteArray [.toUtf8()] 再转成 char * [ .data()]</span></span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; str1.<span class="built_in">toUtf8</span>().<span class="built_in">data</span>();</span><br></pre></td></tr></table></figure></li>
+<li><p><code>子类—&gt;父类</code>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 强制类型转换符static_cast</span></span><br><span class="line"><span class="comment">// 例如父类QEvent * e, 子类QMouseEvent * ev</span></span><br><span class="line">QMouseEvent * ev = <span class="built_in">static_cast</span>&lt;QMouseEvent *&gt;(e);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="一些报错"><a href="#一些报错" class="headerlink" title="一些报错"></a>一些报错</h3><h4 id="0x01-No-rule-to-make-target-‘……’-needed-by-‘……’-Stop"><a href="#0x01-No-rule-to-make-target-‘……’-needed-by-‘……’-Stop" class="headerlink" title="0x01 No rule to make target ‘……’, needed by ‘……’. Stop."></a>0x01 No rule to make target ‘……’, needed by ‘……’. Stop.</h4><p>这个报错可能是 .pro 文件里面有重复的头文件，删除掉重修构建就好了</p>
+<h4 id="0x02-The-inferior-stopped-because-it-received-a-signal-from-the-operating-system"><a href="#0x02-The-inferior-stopped-because-it-received-a-signal-from-the-operating-system" class="headerlink" title="0x02 The inferior stopped because it received a signal from the operating system."></a>0x02 The inferior stopped because it received a signal from the operating system.</h4><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Others/QT1.png" style="zoom: 50%;" />
+
+<p>这个报错通常是由于访问无效的内存地址引起的，会使得程序异常结束，后来回去看代码找到这个我释放了空间但是又试图访问的地方改掉就好了</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/10/11/231011%20VS%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/">VS踩坑</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/07/09/230709%20MySQL%E8%B8%A9%E5%9D%91/">MySQL踩坑笔记</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--��̬��������-->
+  <script type="text/javascript"
+    color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+</body>
+</html>

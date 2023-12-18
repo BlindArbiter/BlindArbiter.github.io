@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang='zh_CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>MySQL注册表迁移和两种服务模式的切换 - BlindArbiter</title>
+
+  
+    <meta name="description" content="二战MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL注册表迁移和两种服务模式的切换">
+<meta property="og:url" content="https://blindarbiter.github.io/2023/03/25/230325%20MySQL%E7%9A%84%E8%BF%81%E7%A7%BB%E5%92%8C%E4%B8%A4%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1/">
+<meta property="og:site_name" content="BlindArbiter">
+<meta property="og:description" content="二战MySQL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Database/net_start1.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Database/net_start2.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Database/net_start3.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Database/ERROR%202003_1.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Database/ERROR%202003_2.png">
+<meta property="og:image" content="https://blindarbiter.github.io/img/Database/ERROR.png">
+<meta property="article:published_time" content="2023-03-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-10T08:42:55.582Z">
+<meta property="article:author" content="BlindArbiter">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blindarbiter.github.io/img/Database/net_start1.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blindarbiter.github.io/about/avatar.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">BlindArbiter</div><div class="sub cap">人生苦短，不必设限</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">MySQL注册表迁移和两种服务模式的切换</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9MySQL%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AD%98%E6%94%BE%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">修改MySQL及数据存放位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">查看数据库文件存储位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">Data目录初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8MySQL%E6%9C%AC%E5%9C%B0%E7%B3%BB%E7%BB%9F%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">启动MySQL本地系统连接服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%B8%A9%E5%9D%91"><span class="toc-number">5.</span> <span class="toc-text">一些踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement"><span class="toc-number">5.1.</span> <span class="toc-text">ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-2003-HY000-Can%E2%80%99t-connect-to-MySQL-server-on-%E2%80%98localhost-3306%E2%80%99-10061"><span class="toc-number">5.2.</span> <span class="toc-text">ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost:3306’ (10061)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-1045-28000-Access-denied-for-user-%E2%80%98root%E2%80%98-%E2%80%99localhost%E2%80%99-using-password-YES"><span class="toc-number">5.3.</span> <span class="toc-text">ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-MySQL%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%90%8E%E5%81%9C%E6%AD%A2"><span class="toc-number">5.4.</span> <span class="toc-text">ERROR MySQL服务启动后停止</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#my-ini%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">my.ini配置文件</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/BlindArbiter" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a><a class="social" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>MySQL注册表迁移和两种服务模式的切换</span></h1>
+<p>二战MySQL</p>
+<span id="more"></span>
+<p>故事背景是我在MySQL里建立的数据库不能和data文件夹同步，<br>这可能是我的MySQL走的网络服务连接，也可能是my.ini配置文件没写明白，总之我把MySQL切换到本地服务连接模式之后就能同步了。<br>所以试试切换成数据库本地连接，刚好因为C盘空间真的不够，想着说顺便一块将MySQL迁移到别的盘。</p>
+<h3 id="修改MySQL及数据存放位置"><a href="#修改MySQL及数据存放位置" class="headerlink" title="修改MySQL及数据存放位置"></a>修改MySQL及数据存放位置</h3><p>C盘空间不足人必修课之一</p>
+<ol>
+<li><p>停止mysql服务</p>
+<ul>
+<li>本地服务：<code>net stop mysql</code></li>
+<li>网络服务：本地控制面板/管理工具/服务，或者win+r输入services.msc，找到mysql服务右键停止</li>
+<li>其实本地服务和网络服务都可以在服务面板里打开或停止</li>
+</ul>
+</li>
+<li><p>转移数据文件，换盘放</p>
+</li>
+<li><p>修改新地址文件中的my.ini文件</p>
+<p>主要改这两条，改成新地址</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">basedir</span>=E:\lenovo\MySQL\MySQL Server <span class="number">8.0</span></span><br><span class="line"><span class="attr">datadir</span>=E:\lenovo\MySQL\MySQL Server <span class="number">8.0</span>\data</span><br></pre></td></tr></table></figure></li>
+<li><p>修改注册服务</p>
+<p>cmd输入regedit进入注册表编辑器</p>
+<p>打开<code>HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/MySQL</code>文件夹</p>
+<p>选择ImagePath，指定所修改的my.ini位置</p>
+<p>比如我的新地址是–defaults-file=”E:\lenovo\MySQL\MySQL Server 8.0\my.ini”</p>
+</li>
+<li><p>服务启动</p>
+<ul>
+<li>本地服务：<code>net start mysql</code></li>
+<li>网络服务：服务面板打开mysql网络服务</li>
+</ul>
+</li>
+</ol>
+<h3 id="查看数据库文件存储位置"><a href="#查看数据库文件存储位置" class="headerlink" title="查看数据库文件存储位置"></a>查看数据库文件存储位置</h3><p>由于我当时要接入数据库信息，但是找不到文件在哪，这个时候可以在mysql里输入下面命令，会返回位置：(这个时候我还是网络服务连接的数据库)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show global variables like &quot;%datadir%&quot;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Data目录初始化"><a href="#Data目录初始化" class="headerlink" title="Data目录初始化"></a>Data目录初始化</h3><p>打开mysql文件夹发现，我的文件夹里根本没有Data文件夹😶</p>
+<p>没有？那就初始化目录一下</p>
+<p>用管理员的身份在终端念出下面的咒语，如果没有报错的话，data文件夹就会现身了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize</span><br><span class="line">mysqld --no-defaults --initialize`</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="启动MySQL本地系统连接服务"><a href="#启动MySQL本地系统连接服务" class="headerlink" title="启动MySQL本地系统连接服务"></a>启动MySQL本地系统连接服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqld -install   //注册</span><br><span class="line">net start mysql   //启动</span><br><span class="line">net stop mysql    //停止</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Database/net_start1.png" alt="img"></p>
+<p>去查了一下，大部分说的是my.ini配置文件没写明白，可是问题来了，我的mysql8根目录下找不到my.ini文件😶</p>
+<p>试过一些方法，还是找不到my.ini（<del>后来知道了怎么勾选查看隐藏文件，不过无所谓，我会新建文件覆盖）</del>，我自己建一个<a herf='https://blindarbiter.github.io/2023/03/25/%E4%BA%8C%E6%88%98mysql/#my.ini配置文件' target="_blank">my.ini</a>，然后再试试：</p>
+<p>好的，直接被拒绝😢</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Database/net_start2.png" alt="img"></p>
+<p>MySQL有分本地系统连接和网络服务连接，大胆推测应该是只能使用一种连接方式连接(?)</p>
+<p>我上面的失败是建立在我已经连接了网络服务之后的，在我关闭了网络服务的mysql80之后，就能连接上了</p>
+<p>用管理员身份打开终端输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize --console</span><br></pre></td></tr></table></figure>
+
+<p>我根据使用命令之后返回的信息，修改了my.ini文件，然后粉碎掉旧data文件，再重复执行上面的命令，直到不报错，出现<code>A temporary password is generated for root@localhost:xxx</code></p>
+<p>这个是本地系统给你设定的mysql处初始随机密码，一定要记下来！（<del>不然一直密码错误无法登录mysql</del>）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Database/net_start3.png" alt="img"></p>
+<p>之后mysql -uroot -p随机密码，诶，连上了！</p>
+<h3 id="一些踩坑"><a href="#一些踩坑" class="headerlink" title="一些踩坑"></a>一些踩坑</h3><h4 id="ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement"><a href="#ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing-this-statement" class="headerlink" title="ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement."></a>ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</h4><p>连上mysql之后，测试使用mysql命令的时候又双叒叕给我报错了，OK这题我会，因为是给的是初始随机密码，所以肯定要设置一个新密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password=&#x27;你的新密码&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost-3306’-10061"><a href="#ERROR-2003-HY000-Can’t-connect-to-MySQL-server-on-‘localhost-3306’-10061" class="headerlink" title="ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost:3306’ (10061)"></a>ERROR 2003 (HY000): Can’t connect to MySQL server on ‘localhost:3306’ (10061)</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Database/ERROR%202003_1.png" alt="img"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Database/ERROR%202003_2.png" alt="img"></p>
+<p>见过好几次这个报错，我推测这个报错应该就是没接上mysql服务(?)</p>
+<p>上面第一张图应该是昨天连接数据库太频繁了，给我卡住了，连不上(?)</p>
+<p>第二张是今天特地重启了一次电脑才开始连接，就莫名其妙地，成功了</p>
+<h4 id="ERROR-1045-28000-Access-denied-for-user-‘root‘-’localhost’-using-password-YES"><a href="#ERROR-1045-28000-Access-denied-for-user-‘root‘-’localhost’-using-password-YES" class="headerlink" title="ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)"></a>ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)</h4><p>这个大概率是密码问题，这条报错最后面写（using password：NO）的话就是没输入密码<br>(using password: YES)大概率就是密码错误了</p>
+<p>主要是之前我一直用的网络连接，现在转成了本地连接，没想到系统会给我初始随机密码，所以我就是一直输入旧密码一直报错😢</p>
+<h4 id="ERROR-MySQL服务启动后停止"><a href="#ERROR-MySQL服务启动后停止" class="headerlink" title="ERROR MySQL服务启动后停止"></a>ERROR MySQL服务启动后停止</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Database/ERROR.png" alt="img"></p>
+<p>这个大概就是昨天操作太频繁了，我一会连接一会又停止它，它大概是不开心了，给我发黄牌警告呢🤐</p>
+<p>总结就是重启大法好。</p>
+<h3 id="my-ini配置文件"><a href="#my-ini配置文件" class="headerlink" title="my.ini配置文件"></a>my.ini配置文件</h3><p>比较多的说法是可以从mysql文件夹里点开查看部分，勾选查看隐藏的项目就能看到my,ini文件，但是我当时没找到，所以是新建my.ini文件覆盖旧文件来解决的问题</p>
+<p>我用的是mysql8，根据<code>mysqld --initialize --console</code>返回的信息修改了我原本的my.ini文件 提一些需要注意的点：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="comment"># 设置mysql的安装目录及data数据存放目录，注意这里要修改成自己mysql的路径及想要存放data的路径</span></span><br><span class="line"><span class="attr">basedir</span>=E:\lenovo\MySQL\MySQL Server <span class="number">8.0</span></span><br><span class="line"><span class="attr">datadir</span>=E:\lenovo\MySQL\MySQL Server <span class="number">8.0</span>\data</span><br><span class="line"><span class="comment"># 旧的服务端使用的字符集为utf8(utfmb3),新版本及未来版本为utf8mb4</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8mb4</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"><span class="comment"># default_authentication_plugin 功能已弃用</span></span><br><span class="line"><span class="comment">; default_authentication_plugin=mysql_native_password</span></span><br><span class="line"><span class="comment"># --ssl=off 也弃用了,新版本可以用下面的语句代替</span></span><br><span class="line"><span class="comment">;--tls-version=invalid</span></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment"># 设置mysql客户端默认字符集，同理</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="comment"># 设置mysql客户端连接服务端时默认使用的端口</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br></pre></td></tr></table></figure>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/03/29/230329%20Unity%E5%9C%A8Android%E4%B8%AD%E6%8E%A5%E5%85%A5SQLite%E6%95%B0%E6%8D%AE%E5%BA%93/">Unity在Android中接入SQLite数据库</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/03/18/230318%20JavaScript%E5%9F%BA%E7%A1%80/">JavaScript—基础</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--��̬��������-->
+  <script type="text/javascript"
+    color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+</body>
+</html>
