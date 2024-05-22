@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang='zh_CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>UEFN Verse_01 - BlindArbiter</title>
+
+  
+    <meta name="description" content="UEFN Verse 程序篇1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UEFN Verse_01">
+<meta property="og:url" content="https://blindarbiter.github.io/2024/05/05/240505%20UEFN-Verse1/">
+<meta property="og:site_name" content="BlindArbiter">
+<meta property="og:description" content="UEFN Verse 程序篇1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-08T12:17:29.499Z">
+<meta property="article:author" content="BlindArbiter">
+<meta property="article:tag" content="UEFN">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blindarbiter.github.io/about/avatar.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">BlindArbiter</div><div class="sub cap">人生苦短，不必设限</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">UEFN Verse_01</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">一、写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.0.1.</span> <span class="toc-text">部分快捷键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%9FRoblox-Studio%E7%9A%84%E5%BC%95%E6%93%8E%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.2.</span> <span class="toc-text">跟Roblox Studio的引擎区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="toc-number">1.0.3.</span> <span class="toc-text">语法规范</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81%E5%A3%B0%E6%98%8E%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">2.1、声明头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E3%80%81%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2、数据类型、常量变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">2.2.1.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.2.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%B9%E5%8F%98%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">改变变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F"><span class="toc-number">2.2.2.3.</span> <span class="toc-text">输出变量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.3.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.4.</span> <span class="toc-text">容器数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.5.</span> <span class="toc-text">内置数据类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text">2.3、类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E7%B1%BB"><span class="toc-number">2.3.1.</span> <span class="toc-text">定义类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.4.</span> <span class="toc-text">2.4、条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.5.</span> <span class="toc-text">2.5、循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E8%BF%AD%E4%BB%A3%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.5.1.</span> <span class="toc-text">持续迭代循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BF%AD%E4%BB%A3%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.5.2.</span> <span class="toc-text">计数迭代循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E3%80%81%E5%87%BD%E6%95%B0"><span class="toc-number">2.6.</span> <span class="toc-text">2.6、函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-number">2.6.1.</span> <span class="toc-text">函数定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-number">2.6.2.</span> <span class="toc-text">函数调用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7%E3%80%81%E7%AD%89%E5%BE%85%E3%80%81%E5%BC%82%E6%AD%A5%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3"><span class="toc-number">2.7.</span> <span class="toc-text">2.7、等待、异步和时间相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E5%BE%85"><span class="toc-number">2.7.1.</span> <span class="toc-text">等待</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5"><span class="toc-number">2.7.2.</span> <span class="toc-text">异步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E6%88%B3"><span class="toc-number">2.7.3.</span> <span class="toc-text">获取时间戳</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">三、对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%AF%B4%E6%98%8E%E7%AC%A6-Specifier"><span class="toc-number">4.</span> <span class="toc-text">四、说明符 Specifier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E3%80%81%E8%AE%BF%E9%97%AE%E8%AF%B4%E6%98%8E%E7%AC%A6"><span class="toc-number">4.1.</span> <span class="toc-text">4.1、访问说明符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E3%80%81%E6%95%88%E6%9E%9C%E8%AF%B4%E6%98%8E%E7%AC%A6"><span class="toc-number">4.2.</span> <span class="toc-text">4.2、效果说明符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%86%85%E7%BD%AE%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">五、内置类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#agent"><span class="toc-number">5.1.</span> <span class="toc-text">agent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97"><span class="toc-number">6.</span> <span class="toc-text">六、常用模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1%E3%80%81Random-%E6%A8%A1%E5%9D%97"><span class="toc-number">6.1.</span> <span class="toc-text">6.1、Random 模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2%E3%80%81SpecialMath-%E6%A8%A1%E5%9D%97"><span class="toc-number">6.2.</span> <span class="toc-text">6.2、SpecialMath 模块</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/BlindArbiter" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a><a class="social" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">博客</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/UEFN/">UEFN</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2024-05-04T16:00:00.000Z">2024-05-05</time></div></div>
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>UEFN Verse_01</span></h1>
+<p>UEFN Verse 程序篇1</p>
+<span id="more"></span>
+
+<p>虽然 UEFN 官网文档说用的是 C++ 编程，不过我觉得有时候好像更像 Python，有时候更像C#。<br>也可以说是糅杂了很多不同编程语言的习惯，比如同一种命令可以有不同的编程语言的写法，这点还是蛮包容的。</p>
+<h2 id="一、写在前面"><a href="#一、写在前面" class="headerlink" title="一、写在前面"></a>一、写在前面</h2><h4 id="部分快捷键"><a href="#部分快捷键" class="headerlink" title="部分快捷键"></a>部分快捷键</h4><ul>
+<li>向 上/下 移动本行代码：<code>Alt + ↑/↓</code></li>
+<li>同行往下多光标：<code>Ctrl + Alt + ↓</code></li>
+<li>向下复制本行代码：<code>Shift + Alt + ↓</code></li>
+</ul>
+<h4 id="跟Roblox-Studio的引擎区别"><a href="#跟Roblox-Studio的引擎区别" class="headerlink" title="跟Roblox Studio的引擎区别"></a>跟Roblox Studio的引擎区别</h4><p>编写代码时，如果需要选取提示的第一个，按Tab，我总是习惯按 Enter然后就换行了😣</p>
+<h4 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h4><ul>
+<li>命名要用驼峰命名法</li>
+<li>跟 Python 一样需要注意缩进</li>
+</ul>
+<h2 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h2><h3 id="2-1、声明头文件"><a href="#2-1、声明头文件" class="headerlink" title="2.1、声明头文件"></a>2.1、声明头文件</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 默认模板头文件</span><br><span class="line"><span class="keyword">using</span> &#123; /Fortnite.com/Devices &#125;</span><br><span class="line"><span class="keyword">using</span> &#123; /Verse.org/Simulation &#125;</span><br><span class="line"><span class="keyword">using</span> &#123; /UnrealEngine.com/Temporary/Diagnostics &#125;</span><br><span class="line"># 常用头文件</span><br><span class="line"><span class="keyword">using</span> &#123; /Verse.org/Random &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2、数据类型、常量变量"><a href="#2-2、数据类型、常量变量" class="headerlink" title="2.2、数据类型、常量变量"></a>2.2、数据类型、常量变量</h3><ul>
+<li><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 常量值不可更改</span><br><span class="line">常量名:常量类型 = 值</span><br></pre></td></tr></table></figure></li>
+<li><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><ul>
+<li><h5 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h5><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 定义一般变量的话一般需要初始化</span></span><br><span class="line"><span class="keyword">var</span> 变量名: 变量类型 = 值</span><br><span class="line"><span class="keyword">var</span> PlayerName: <span class="built_in">string</span> = <span class="string">&quot;BlindArbiter&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><h5 id="改变变量"><a href="#改变变量" class="headerlink" title="改变变量"></a>改变变量</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 总之改变变量值的话前面得加set</span><br><span class="line">set 变量名 = 新值</span><br><span class="line">set 变量名 += 增量</span><br></pre></td></tr></table></figure></li>
+<li><h5 id="输出变量"><a href="#输出变量" class="headerlink" title="输出变量"></a>输出变量</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 输出变量时</span><br><span class="line"><span class="built_in">Print</span>(PlayerName)</span><br><span class="line"><span class="built_in">Print</span>(<span class="string">&quot;Hello, &#123;PlayerName&#125;&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a><strong>基本数据类型</strong></h4><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>logic</td>
+<td align="left">布尔型，ture or false</td>
+</tr>
+<tr>
+<td>int</td>
+<td align="left">整型，即整数</td>
+</tr>
+<tr>
+<td>float</td>
+<td align="left">浮点型，即小数</td>
+</tr>
+<tr>
+<td>string</td>
+<td align="left">字符串</td>
+</tr>
+<tr>
+<td>enum</td>
+<td align="left">枚举</td>
+</tr>
+</tbody></table>
+</li>
+<li><h4 id="容器数据类型"><a href="#容器数据类型" class="headerlink" title="容器数据类型"></a><strong>容器数据类型</strong></h4><ul>
+<li><p><strong>Array</strong>：数组</p>
+<ul>
+<li>用 <code>[]</code> 表示</li>
+<li>一个数组的所有元素只能是同一类型</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 定义一维数组</span><br><span class="line">var array1 : []<span class="type">int</span> = array&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">8</span>&#125;</span><br><span class="line"># 获取一维数组长度</span><br><span class="line">array1.Length</span><br><span class="line"></span><br><span class="line"># 定义多维数组</span><br><span class="line">var temp : <span class="type">int</span> = <span class="number">0</span></span><br><span class="line">array2 : [][]<span class="type">int</span> =</span><br><span class="line">    <span class="keyword">for</span> (Row := <span class="number">0.</span><span class="number">.4</span>):</span><br><span class="line">		<span class="keyword">for</span>(Column := <span class="number">0.</span><span class="number">.5</span>):</span><br><span class="line">			set temp += <span class="number">1</span></span><br><span class="line"># 遍历多维数组</span><br><span class="line"><span class="keyword">if</span> (columnLen : <span class="type">int</span> = array2[<span class="number">0</span>].Length):</span><br><span class="line">	<span class="keyword">for</span>(Row:=<span class="number">0.</span>.array2.Length<span class="number">-1</span>, Column:=<span class="number">0.</span>.columnLen):</span><br><span class="line">		<span class="keyword">if</span> (Element := array2[Row][Column]):</span><br><span class="line">			<span class="built_in">Print</span>(<span class="string">&quot;[&#123;Row&#125;][&#123;Column&#125;]:&#123;Element&#125;&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Tuple</strong>：元组</p>
+<ul>
+<li>用 <code>()</code> 表示</li>
+<li>一个元组内的元素可以包含多种数据类型</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 定义，初始化值的时候可以把类型写上</span><br><span class="line">tuple1 : <span class="built_in">tuple</span>(<span class="type">int</span>,<span class="type">int</span>,<span class="type">int</span>) = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">tuple2 : <span class="built_in">tuple</span>(<span class="type">int</span>, string, <span class="built_in">tuple</span>(<span class="type">int</span>, <span class="type">float</span>)) = (<span class="number">1</span>,<span class="string">&quot;BlindArbiter&quot;</span>,(<span class="number">2</span>,<span class="number">4.0</span>))</span><br><span class="line"># 当然也可以不写，编译器会自行推断类型</span><br><span class="line">tuple1 := (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">tuple2 := (<span class="number">1</span>,<span class="string">&quot;BlindArbiter&quot;</span>,(<span class="number">2</span>,<span class="number">4.0</span>))</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Map</strong>：映射，其实可以看作是数据类型被固定死的 Python 字典 和 Roblox 表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 定义</span><br><span class="line">var dict1 : [string]<span class="type">int</span> = map&#123;<span class="string">&quot;id&quot;</span> =&gt; <span class="number">1001</span>, <span class="string">&quot;coin&quot;</span> =&gt; <span class="number">100</span>&#125;</span><br><span class="line"># 增加或修改键值对，通过set修改键值对的值，如果该键值对不存在为增加，存在为修改</span><br><span class="line"><span class="keyword">if</span>(set dict1[<span class="string">&quot;coin&quot;</span>] = <span class="number">500</span>):</span><br><span class="line">	<span class="built_in">Print</span>(<span class="string">&quot;修改键值对&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(set dict1[<span class="string">&quot;health&quot;</span>] = <span class="number">100</span>):</span><br><span class="line">	<span class="built_in">Prinr</span>(<span class="string">&quot;新增键值对&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>option</strong>：可以包含一个值，或者为空（不常用）</p>
+</li>
+</ul>
+</li>
+<li><h4 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h4><ul>
+<li><p><strong>message</strong>：消息类是一串可本地化的字符串，需要加上 <code>&lt;localizes&gt;</code> 用来本地化玩家所选语言。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 定义 message</span><br><span class="line"><span class="built_in">MessageText</span>&lt;localizes&gt;(str:string) : message = <span class="string">&quot;Hello,World!&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3、类"><a href="#2-3、类" class="headerlink" title="2.3、类"></a>2.3、类</h3><ul>
+<li><h4 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 声明 creative_device 是为了使这个脚本能被拖到世界里</span><br><span class="line">类名 := <span class="built_in">class</span>(creative_device):</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-4、条件语句"><a href="#2-4、条件语句" class="headerlink" title="2.4、条件语句"></a>2.4、条件语句</h3><p>在 UEFN 里，可以跟 Python 一样写法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件<span class="number">1</span>):</span><br><span class="line">	结果<span class="number">1</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (条件<span class="number">2</span>):</span><br><span class="line">	结果<span class="number">2</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	结果<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>如果后面的执行代码只有一行的话可以像C的写法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件) &#123; 结果 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有另一种写法，在多条件时，会比较直观</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>:</span><br><span class="line">	条件<span class="number">1</span></span><br><span class="line">    条件<span class="number">2</span></span><br><span class="line">    条件<span class="number">3</span></span><br><span class="line">    ...</span><br><span class="line">then:</span><br><span class="line">	结果<span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	结果<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-5、循环语句"><a href="#2-5、循环语句" class="headerlink" title="2.5、循环语句"></a>2.5、循环语句</h3><ul>
+<li><h4 id="持续迭代循环"><a href="#持续迭代循环" class="headerlink" title="持续迭代循环"></a>持续迭代循环</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loop:</span><br><span class="line">	<span class="keyword">if</span> (条件):</span><br><span class="line">		<span class="keyword">break</span></span><br></pre></td></tr></table></figure></li>
+<li><h4 id="计数迭代循环"><a href="#计数迭代循环" class="headerlink" title="计数迭代循环"></a>计数迭代循环</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量名 : 类型 = 迭代第一个数字..迭代最后数字):</span><br><span class="line">	...</span><br><span class="line"># 前面没有声明过变量<span class="function">x</span></span><br><span class="line"><span class="function"><span class="title">for</span> <span class="params">(x : <span class="type">int</span> = <span class="number">1.</span><span class="number">.5</span>)</span>:</span></span><br><span class="line"><span class="function">	...</span></span><br><span class="line"><span class="function"># 前面声明过变量x</span></span><br><span class="line"><span class="function">for (x :=</span> <span class="number">1.</span><span class="number">.5</span>):</span><br><span class="line">	...</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-6、函数"><a href="#2-6、函数" class="headerlink" title="2.6、函数"></a>2.6、函数</h3><table>
+<thead>
+<tr>
+<th>函数返回类型</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td>logic</td>
+<td>返回布尔型，true or false</td>
+</tr>
+<tr>
+<td>int</td>
+<td>整型</td>
+</tr>
+<tr>
+<td>float</td>
+<td>浮点型</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 基本格式:函数名(参数:参数类型)&lt;说明符&gt; : 函数返回值类型 = &#123;&#125;</span><br><span class="line"># 除此之外还有几种写法</span><br><span class="line"><span class="built_in">Func1</span>() : <span class="type">void</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Func2</span>() : <span class="type">void</span> =</span><br><span class="line">    ...</span><br><span class="line"><span class="built_in">Func3</span>(param1:<span class="type">int</span>, param2:<span class="type">int</span>) : <span class="type">int</span> = param1 + param2</span><br><span class="line">    </span><br><span class="line"><span class="built_in">Func4</span>(param1:<span class="type">int</span>, param2:<span class="type">float</span>) : <span class="type">float</span> =</span><br><span class="line">	block:   # 阻塞作用，等效于 Python 定义函数时的 pass</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h4></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">常量 : 变量类型 = 函数方法名()</span><br><span class="line">常量 := 函数名()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-7、等待、异步和时间相关"><a href="#2-7、等待、异步和时间相关" class="headerlink" title="2.7、等待、异步和时间相关"></a>2.7、等待、异步和时间相关</h3><ul>
+<li><h4 id="等待"><a href="#等待" class="headerlink" title="等待"></a>等待</h4></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Sleep(秒) == Roblox-&gt; task.wait(秒)</span><br><span class="line">Sleep(2)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h4></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spawn&#123; 函数() &#125;</span><br><span class="line">spawn:</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="获取时间戳"><a href="#获取时间戳" class="headerlink" title="获取时间戳"></a>获取时间戳</h4></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GetSimulationElapsedTime()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、对象"><a href="#三、对象" class="headerlink" title="三、对象"></a>三、对象</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># @editable 表示在 UEFN 中公开变量，即需要在脚本属性处给此变量赋值</span><br><span class="line"># creative_prop UEFN里的一个内置类</span><br><span class="line">@editable var Prop: creative_prop = creative_prop&#123;&#125; </span><br></pre></td></tr></table></figure>
+
+<div class="tag-plugin note" color="warning"><div class="title"><b>UObjects</div><div class="body"><p>不能用 new 和 delete 运算符。 所有的 UObjects 都由虚幻引擎管理内存和垃圾回收。如果通过 new 或者 delete 手动管理内存，可能会导致内存出错。</b></p></div></div>
+
+
+
+<h2 id="四、说明符-Specifier"><a href="#四、说明符-Specifier" class="headerlink" title="四、说明符 Specifier"></a>四、说明符 Specifier</h2><h3 id="4-1、访问说明符"><a href="#4-1、访问说明符" class="headerlink" title="4.1、访问说明符"></a>4.1、访问说明符</h3><p>一般在定义模块和类的时候声明</p>
+<table>
+<thead>
+<tr>
+<th>访问说明符</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;public&gt;</code></td>
+<td>公开，访问不受限</td>
+</tr>
+<tr>
+<td><code>&lt;internal&gt;</code>（默认）</td>
+<td>内部，仅限当前模块</td>
+</tr>
+<tr>
+<td><code>&lt;protected&gt;</code></td>
+<td>保护，仅限当前类和子类</td>
+</tr>
+<tr>
+<td><code>&lt;private&gt;</code></td>
+<td>私密，仅限当前类</td>
+</tr>
+</tbody></table>
+<h3 id="4-2、效果说明符"><a href="#4-2、效果说明符" class="headerlink" title="4.2、效果说明符"></a>4.2、效果说明符</h3><p>一般写在函数后面，指示函数行为</p>
+<table>
+<thead>
+<tr>
+<th>常用说明符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;override&gt;</code></td>
+<td>覆盖/重写 原有类或函数，</td>
+</tr>
+<tr>
+<td><code>&lt;suspend&gt;</code></td>
+<td>标记函数存在等待或支持暂停操作</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="五、内置类"><a href="#五、内置类" class="headerlink" title="五、内置类"></a>五、内置类</h2><h3 id="agent"><a href="#agent" class="headerlink" title="agent"></a>agent</h3><p>在很多封装的函数参数里看到，但是没有具体的文档说明这个，UEFN 对它的定义只有短短的一条：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">agent&lt;native&gt;&lt;public&gt; := class&lt;unique&gt;&lt;epic_internal&gt;:</span><br></pre></td></tr></table></figure>
+
+<p>研究了很多事件和函数，我目前的理解是，agent是一个代理，它代表了玩家的状态或者说触发事件的行为。</p>
+<h2 id="六、常用模块"><a href="#六、常用模块" class="headerlink" title="六、常用模块"></a>六、常用模块</h2><p><strong>官方内置模块API</strong>：<a target="_blank" rel="noopener" href="https://dev.epicgames.com/documentation/en-us/uefn/verse-api">Verse API Reference</a></p>
+<h3 id="6-1、Random-模块"><a href="#6-1、Random-模块" class="headerlink" title="6.1、Random 模块"></a>6.1、Random 模块</h3><p><strong>头文件</strong>：<code>using &#123; /Verse.org/Random &#125;</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span>&#123; /Verse.osg/Random &#125;</span><br><span class="line"># 返回整型随机数</span><br><span class="line"><span class="built_in">GetRandomInt</span>(最小值:<span class="type">int</span>, 最大值:<span class="type">int</span>):<span class="type">int</span></span><br><span class="line"># 返回浮点随机数</span><br><span class="line"><span class="built_in">GetRandomFloat</span>(最小值:<span class="type">float</span>, 最大值:<span class="type">float</span>):<span class="type">float</span></span><br><span class="line"># 打乱数组内元素原先顺序，即重新洗牌</span><br><span class="line"><span class="built_in">Shuffle</span>(Input:[]t where t:type):[]t = external &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-2、SpecialMath-模块"><a href="#6-2、SpecialMath-模块" class="headerlink" title="6.2、SpecialMath 模块"></a>6.2、SpecialMath 模块</h3><p><strong>头文件</strong>：<code>/UnrealEngine.com/Temporary/SpatialMath</code></p>
+<p><strong>结构体和类</strong></p>
+<ul>
+<li>rotation</li>
+<li>vector2：二维向量</li>
+<li>vector3：三维向量</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span>&#123; /UnrealEngine.com/Temporary/SpatialMath &#125;</span><br><span class="line">var Vec : vector3 = vector3&#123;&#125;</span><br><span class="line">VecPos : vector3 = vector3&#123;X:=Vec.X, Y:=Vec.Y, Z:=Vec.Z &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2024/05/16/240516%20Roblox-%E5%88%B6%E4%BD%9C%E6%8F%92%E4%BB%B6/">Roblox - 制作插件</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2024/05/05/240512%20UEFN-%E5%BC%95%E6%93%8E%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3/">UEFN 引擎操作和内置道具</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--��̬��������-->
+  <script type="text/javascript"
+    color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+</body>
+</html>
