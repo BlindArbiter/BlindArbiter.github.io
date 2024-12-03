@@ -102,7 +102,7 @@
 
 
 <div class="widgets">
-<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">沒有找到內容！</div></div></div></widget>
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
 <widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Unity在Android中接入SQLite数据库</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Studio-%E8%BF%9E%E6%8E%A5%E8%B6%85%E6%97%B6"><span class="toc-number">1.</span> <span class="toc-text">Android Studio 连接超时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAUnity-%E5%AE%89%E5%8D%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%AF%86%E9%92%A5%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">创建Unity-安卓工程的密钥文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E8%B0%83%E7%94%A8java%E8%84%9A%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">安卓项目调用java脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQLite-Manager"><span class="toc-number">4.</span> <span class="toc-text">SQLite Manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity%E4%BD%BF%E7%94%A8SQLite%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">Unity使用SQLite数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8FAndroid%E7%AB%AF%E9%9C%80%E8%A6%81%E6%8B%B7%E8%B4%9D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">注意Android端需要拷贝数据库文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E2%80%94%E8%B7%9FSQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E9%83%A8%E5%88%86"><span class="toc-number">7.</span> <span class="toc-text">C# —跟SQLite数据库相关部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%AE%89%E5%8D%93apk%E6%96%87%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">打包安卓apk文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity%E5%85%B6%E4%BB%96%E6%8A%A5%E9%94%99%E6%88%90%E5%B0%B1%E6%94%B6%E9%9B%86%E6%A0%8F%E7%9B%AE"><span class="toc-number">9.</span> <span class="toc-text">Unity其他报错成就收集栏目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Loading-assembly-failed-%E2%80%9CAssets-Plugins-Mono-Data-Sqlite-dll%E2%80%9D-reason-File-does-not-contain-a-valid-CIL-image"><span class="toc-number">9.1.</span> <span class="toc-text">Loading assembly failed: “Assets&#x2F;Plugins&#x2F;Mono.Data.Sqlite.dll” reason: File does not contain a valid CIL image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SqliteException-SQLite-error-no-such-table"><span class="toc-number">9.2.</span> <span class="toc-text">SqliteException: SQLite error no such table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sqlite-Error-SQLite-error-no-such-column"><span class="toc-number">9.3.</span> <span class="toc-text">Sqlite Error:  SQLite error no such column</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#error-CS0234%EF%BC%9AThe-type-or-namespace-name%E2%80%9Cxxx%E2%80%9Cdoes-not-exist-in-the-namespace%E2%80%9Cyyy%E2%80%9C"><span class="toc-number">9.4.</span> <span class="toc-text">error CS0234：The type or namespace name“xxx“does not exist in the namespace“yyy“</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A5%87%E7%9A%84%E4%B9%B1%E7%A0%81%E9%94%99%E8%AF%AF"><span class="toc-number">9.5.</span> <span class="toc-text">新奇的乱码错误(?)</span></a></li></ol></li></ol></div></div></widget>
@@ -121,7 +121,7 @@
 
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">博客</a><span class="sep"></span><a class="cap breadcrumb" href="/">網誌</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div id="post-meta">發布於&nbsp;<time datetime="2023-03-28T16:00:00.000Z">2023-03-29</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">博客</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-03-28T16:00:00.000Z">2023-03-29</time></div></div>
 
 <article class='md-text content post reveal'>
 <h1 class="article-title"><span>Unity在Android中接入SQLite数据库</span></h1>
@@ -274,12 +274,12 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blindarbiter.github.io/img/Unity_Android/unityError0.png" alt="img"></p>
 
 
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>授權條款</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">較新文章</div><a href="/2023/05/14/230514%20MySQL%E6%89%8B%E8%AE%B0/">MySQL手记</a></div><div class="item" id="next"><div class="note">較早文章</div><a href="/2023/03/25/230325%20MySQL%E7%9A%84%E8%BF%81%E7%A7%BB%E5%92%8C%E4%B8%A4%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1/">MySQL注册表迁移和两种服务模式的切换</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/05/14/230514%20MySQL%E6%89%8B%E8%AE%B0/">MySQL手记</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/03/25/230325%20MySQL%E7%9A%84%E8%BF%81%E7%A7%BB%E5%92%8C%E4%B8%A4%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1/">MySQL注册表迁移和两种服务模式的切换</a></div></section></div>
 
 
 
@@ -399,11 +399,11 @@
   stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
   stellar.config = {
     date_suffix: {
-      just: '剛剛',
-      min: '分鐘前',
-      hour: '小時前',
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
       day: '天前',
-      month: '個月前',
+      month: '个月前',
     },
     root : '/',
   };
