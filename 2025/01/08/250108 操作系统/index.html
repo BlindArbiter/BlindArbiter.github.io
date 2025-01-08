@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang='zh_CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>操作系统 - BlindArbiter</title>
+
+  
+    <meta name="description" content="期末复习版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统">
+<meta property="og:url" content="https://blindarbiter.github.io/2025/01/08/250108%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+<meta property="og:site_name" content="BlindArbiter">
+<meta property="og:description" content="期末复习版">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-08T03:58:55.965Z">
+<meta property="article:author" content="BlindArbiter">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blindarbiter.github.io/about/avatar.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">BlindArbiter</div><div class="sub cap">人生苦短，不必设限</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">操作系统</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-OS"><span class="toc-number">1.</span> <span class="toc-text">第一章 OS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">多道批处理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.</span> <span class="toc-text">分时系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">操作系统的基本特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%86%85%E6%A0%B8"><span class="toc-number">1.4.</span> <span class="toc-text">微内核</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">第二章 进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-number">2.1.</span> <span class="toc-text">进程同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%E3%80%81%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E5%92%8C%E6%AD%BB%E9%94%81"><span class="toc-number">3.</span> <span class="toc-text">第三章、处理机调度和死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-P96"><span class="toc-number">3.1.</span> <span class="toc-text">作业调度算法 P96</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-RR-P100"><span class="toc-number">3.2.</span> <span class="toc-text">轮转调度算法 RR P100</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-number">3.3.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95-P120"><span class="toc-number">3.4.</span> <span class="toc-text">银行家算法 P120</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%E3%80%81%E5%AD%98%E5%82%A8%E5%99%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">第四章、存储器管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86-P148-149"><span class="toc-number">4.1.</span> <span class="toc-text">分页存储管理 P148-149</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%E3%80%81%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">第五章、虚拟存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95-P174"><span class="toc-number">5.1.</span> <span class="toc-text">页面置换算法 P174</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">6.</span> <span class="toc-text">第六章 输入输出系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%AE%BE%E5%A4%87%E6%97%A0%E5%85%B3%E8%BD%AF%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">与设备无关软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%84%B1%E6%9C%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">6.2.</span> <span class="toc-text">假脱机系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E7%AE%A1%E7%90%86"><span class="toc-number">6.3.</span> <span class="toc-text">缓冲区管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A9%E6%9C%9F%E7%9A%84%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-P233"><span class="toc-number">6.4.</span> <span class="toc-text">早期的磁盘调度算法 P233</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">第七章 文件管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%E3%80%81%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">8.</span> <span class="toc-text">第八章、磁盘存储器的管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%AD%98%E7%9A%84%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">外存的组织方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">8.2.</span> <span class="toc-text">文件存储空间的管理</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/BlindArbiter" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a><a class="social" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">博客</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2025-01-07T16:00:00.000Z">2025-01-08</time></div></div>
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>操作系统</span></h1>
+<p>期末复习版</p>
+<span id="more"></span>
+
+<h1 id="操作系统（OS"><a href="#操作系统（OS" class="headerlink" title="操作系统（OS)"></a>操作系统（OS)</h1><h2 id="第一章-OS"><a href="#第一章-OS" class="headerlink" title="第一章 OS"></a>第一章 OS</h2><ul>
+<li><strong>概念：</strong>操作系统是配置在计算机硬件上的第一层软件，是对硬件系统的首次扩充。</li>
+<li><strong>定义：</strong>OS是一组能有效地组织和管理计算机硬件和软件资源，合理地对各类作业进行调度，方便用户使用的程序的集合。</li>
+<li><strong>目标：</strong>方便性，有效性，可扩充性，开放性</li>
+<li><strong>作用：</strong>①OS作为用户与计算机硬件系统之间的接口。②OS作为计算机资源的管理者。③OS实现了对计算机资源的抽象</li>
+</ul>
+<h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a><strong>多道批处理系统</strong></h3><ul>
+<li>特征：作业调度、资源分配、并行处理</li>
+<li><strong>优点：资源利用率高，系统吞吐量大</strong></li>
+<li><strong>缺点：平均周转时间长，无交互能力</strong></li>
+</ul>
+<h3 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a><strong>分时系统</strong></h3><ul>
+<li>在一台主机上连接了多个配有显示器和键盘的终端并由此所组成的系统，该系统允许多个用户同时通过自己的终端，以交互的方式使用计算机，共享主机中的资源。</li>
+<li><strong>特征：多路性，独立柱，及时性，交互性</strong></li>
+</ul>
+<h3 id="操作系统的基本特性"><a href="#操作系统的基本特性" class="headerlink" title="操作系统的基本特性"></a><strong>操作系统的基本特性</strong></h3><ul>
+<li><strong>并发</strong>：指两个或多个事件在<strong>同一时间间隔内</strong>发生<ul>
+<li>并行性是<strong>同一时刻</strong></li>
+</ul>
+</li>
+<li><strong>共享</strong>：资源复用，方式有互斥共享方式和同时访问方式<ul>
+<li>并发和共享是互为存在的条件</li>
+</ul>
+</li>
+<li><strong>虚拟</strong>：通过某种技术将一个物理实体变为若干个逻辑上的对应物。<ul>
+<li>虚拟技术有时分复用技术和空分复用技术。</li>
+</ul>
+</li>
+<li><strong>异步</strong>：允许多个任务或进程以非阻塞的方式运行，不需要等待某个任务完成后再执行下一个任务<ul>
+<li>进程是以人们不可预知的速度向前推进的，可看出进程没有顺序性</li>
+</ul>
+</li>
+</ul>
+<h3 id="微内核"><a href="#微内核" class="headerlink" title="微内核"></a>微内核</h3><p>基于客户/服务器模式，应用“机制与策略分离”原理，面对对象，实现OS最核心功能的足够小的内核</p>
+<h2 id="第二章-进程"><a href="#第二章-进程" class="headerlink" title="第二章 进程"></a>第二章 进程</h2><ul>
+<li><p><strong>定义：</strong>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
+</li>
+<li><p><strong>进程实体：</strong>程序段、相关数据段和PCB（进程控制块）构成</p>
+</li>
+<li><p><strong>特征：</strong>动态性、并发性、独立性、异步性</p>
+</li>
+<li><p><strong>进程三态</strong>：就绪、执行、阻塞状态</p>
+<p>阻塞状态</p>
+</li>
+<li><p><strong>程序和进程的区别</strong></p>
+<ul>
+<li>进程是动态的，程序是静态的</li>
+<li>进程是暂时的，程序是永久存在的</li>
+<li>一个程序对应多个进程</li>
+<li>程序是进程的组成部分</li>
+</ul>
+</li>
+</ul>
+<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a><strong>进程同步</strong></h3><ul>
+<li><strong>两种形式的制约关系</strong>：间接和直接相互制约</li>
+<li><strong>临界资源</strong>：多个进程或线程可能需要共享使用，但在某一时刻只能由一个进程或线程访问的资源。<ul>
+<li>各进程采取<strong>互斥方式</strong>实现共享的资源称作临界资源</li>
+</ul>
+</li>
+<li><strong>临界区</strong>：每个进程中访问临界资源的代码</li>
+<li><strong>信号量机制</strong><ul>
+<li>整型信号量：定义为一个用于表示资源数目的整型量S,<ul>
+<li>两个标准原子操作：wait(S)和signal(S)，也称为P，V操作</li>
+</ul>
+</li>
+<li>记录型信号量：采用记录型数据结构</li>
+<li>AND信号量：基本思想是将进程在整个运行过程中所需要的所有资源一次性地全部分配给进程，待进程使用完后一起释放</li>
+</ul>
+</li>
+<li>进程同步问题：<strong>生产者-消费者问题</strong> P65</li>
+</ul>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><ul>
+<li><strong>定义</strong>：是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位</li>
+<li><strong>作用</strong>：能提高计算机系统的资源利用率，使OS具有更好的并发性</li>
+<li><strong>线程和进程的关系</strong><ul>
+<li>进程：资源分配的单位，一个进程可以产生多个线程<br>线程：调度和分派的单位</li>
+<li>一个进程可以有多个线程，但至少有一个线程；而一个线程只能在一个进程的地址空间内活动。</li>
+<li>资源分配给进程，同一个进程的所有线程共享该进程所有资源。</li>
+<li>CPU分配给线程，即真正在处理器运行的是线程。</li>
+<li>线程在执行过程中需要协作同步，不同进程的线程间要利用消息通信的办法实现同步。</li>
+</ul>
+</li>
+<li><strong>线程与进程的比较</strong><ul>
+<li><strong>调度的基本单位</strong>：传统的OS中是进程，引入线程的OS把线程作为调度和分派的基本单位，是能独立运行的基本单位。线程切换时，切换代价远小于进程。不同进程中的线程切换必然会引起进程的切换。</li>
+<li><strong>并发性</strong>：进程之间可以并发，一个进程中的多个线程可以并发执行</li>
+<li><strong>拥有资源</strong>：进程可以拥有资源，作为系统中拥有资源的一个基本单位，线程不拥有资源，仅有一点必不可少的、能保证独立运行的资源。</li>
+<li><strong>独立性</strong>：同一进程中的线程中的独立性要比不同进程之间的独立性低</li>
+<li><strong>系统开销</strong>：进程创建和撤销的系统开销大于线程</li>
+<li><strong>支持多处理机系统</strong>：线程支持多处理器系统</li>
+</ul>
+</li>
+</ul>
+<h2 id="第三章、处理机调度和死锁"><a href="#第三章、处理机调度和死锁" class="headerlink" title="第三章、处理机调度和死锁"></a>第三章、处理机调度和死锁</h2><ul>
+<li><strong>吞吐量：</strong>单位时间内系统所完成的作业数。（总工作量）<br><strong>响应时间：</strong>从提交请求到显示出处理结果为止的一段时间间隔。（第一次响应-到达时间）<br><strong>周转时间：</strong>作业被提交给系统开始到作业完成的时间间隔。（完成时间-到达时间）<br><strong>平均周转时间：</strong>衡量不同调度算法对相同作业流的调度性能。<br><strong>带权周转时间：</strong>反映长短作业的差别。周转时间/执行时间（服务时长）（&gt;=1）<br><strong>平均带权周转时间：</strong>比较某种算法对不同作业流调度性能。</li>
+<li><strong>批处理系统的目标</strong>：平均周转时间短，系统吞吐量高，处理机利用率高</li>
+<li><strong>分时系统的目标：</strong>响应时间快，均衡性</li>
+</ul>
+<h3 id="作业调度算法-P96"><a href="#作业调度算法-P96" class="headerlink" title="作业调度算法 P96"></a><strong>作业调度算法</strong> P96</h3><p>主要任务：检查系统中的资源能否满足作业的作业对资源的需求，以及按照一定的调度算法，从外存的后备队列中选取某些作业调入内存。</p>
+<ul>
+<li>先来先服务（FCFS）</li>
+<li>短作业优先（SJF）</li>
+<li>优先级调度算法（PSA）</li>
+<li>高相应比优先调度算法（HRRN）</li>
+</ul>
+<h3 id="轮转调度算法-RR-P100"><a href="#轮转调度算法-RR-P100" class="headerlink" title="轮转调度算法 RR P100"></a><strong>轮转调度算法 RR</strong> P100</h3><ul>
+<li>进程调度算法</li>
+<li>时间片：时间片是分时操作系统分配给每个正在运行的进程微观上的一段CPU时间（在抢占内核中是：从进程开始运行直到被抢占的时间）</li>
+<li>时间片的选择：应略大于一次典型的交互需要的时间。<ul>
+<li>三个因素：系统对相应时间的要求、就绪队列中进程的数目和系统的处理能力。</li>
+<li>小：有利于短作业，响应时间短，吞吐量下降</li>
+</ul>
+</li>
+</ul>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a><strong>死锁</strong></h3><ul>
+<li><strong>定义</strong>：一组进程中的每一个进程都在等待仅由改组进程中的其他进程引发的事件，改组进程是死锁的</li>
+<li><strong>原因：</strong>竞争资源，进程间推进顺序不当</li>
+<li><strong>产生条件（同时具备）：</strong>互斥条件，请求和保持条件，不可抢占条件，循环等待条件</li>
+<li><strong>处理死锁的方法：</strong>预防死锁，避免死锁，检测死锁，解锁死锁、</li>
+</ul>
+<h3 id="银行家算法-P120"><a href="#银行家算法-P120" class="headerlink" title="银行家算法 P120"></a><strong>银行家算法</strong> P120</h3><h2 id="第四章、存储器管理"><a href="#第四章、存储器管理" class="headerlink" title="第四章、存储器管理"></a>第四章、存储器管理</h2><ul>
+<li><strong>程序的装入</strong><ul>
+<li>绝对装入方式：绝对装入只适用于计算机系统很小，且仅运行单道程序。在编译时就知道程序将放入内存中的那个位置，编译程序将产生绝对地址的目标代码。装入程序按照装入模块中的地址，将程序和数据装入内存。</li>
+<li>可重定位装入方式：根据内存的具体情况将装入模块装入到适当位置。把在装入时对目标程序中指令和数据地址的修改过程称为重定位。（p133提到的是静态重定位，动态重定位见p143）</li>
+<li>动态运行时的装入方式：装入程序把装入模块装入内存后，并不立即把装入模块中的逻辑地址转换成物理地址，而是把这种地址转换推迟到程序真正要执行时猜进行。</li>
+</ul>
+</li>
+<li>连续分配存储管理方式 P135 思想 优缺<ul>
+<li>单一连续分配</li>
+<li>固定分区分配</li>
+<li>动态分区分配（可变分区分配）</li>
+</ul>
+</li>
+<li>基于顺序搜索的动态分区分配算法 P140<ul>
+<li>首次适应算法FF</li>
+<li>循环首次适应算法NF</li>
+<li>最佳适应算法BF</li>
+<li>最欢适应算法WF</li>
+</ul>
+</li>
+<li><strong>对换</strong><ul>
+<li>对换是指把内存中暂时不能运行的进程或者暂时不用的程序和数据换到外存上，以便腾出足够的内存空间，再具把备运行条件的进程和进程所需要的程序及数据换入内存。</li>
+<li>是改善内存利用率的有效措施，提高处理机的利用率和系统的吞吐量</li>
+</ul>
+</li>
+</ul>
+<h3 id="分页存储管理-P148-149"><a href="#分页存储管理-P148-149" class="headerlink" title="分页存储管理 P148-149"></a>分页存储管理 P148-149</h3><ul>
+<li><strong>分段存储管理</strong> P155<ul>
+<li>分段：用户把自己的作业按逻辑关系划分为若干个段，每个段都从0开始编址，并且都有自己的名字和长度。逻辑地址就是由段名（段号）和段内偏移量（段内地址）来决定的。</li>
+<li>优点：方便编程、信息共享、信息保护、动态增长、动态链接</li>
+</ul>
+</li>
+<li><strong>信息共享</strong> P159 图4-21</li>
+</ul>
+<h2 id="第五章、虚拟存储器"><a href="#第五章、虚拟存储器" class="headerlink" title="第五章、虚拟存储器"></a>第五章、虚拟存储器</h2><ul>
+<li><strong>虚拟存储器：</strong>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种储存器系统<ul>
+<li><strong>特征：</strong>多次性，对换性，虚拟性</li>
+</ul>
+</li>
+<li><strong>缺页率：</strong>访问失败/(访问成功+访问失败)</li>
+<li><strong>抖动：</strong>被调出的页面立刻被调入形成的频繁更换页面现象，以致一个进程在运行中把大部分时间都花费在页面置换工作上<ul>
+<li>产生抖动的原因：在系统中运行的进程太多，由此分配给每一个进程的物理块太少，不能满足进程正常运行的基本要求，致使每个进程在运行时，频繁地出现缺页，必须请求系统将缺之页调入内存。</li>
+</ul>
+</li>
+<li><strong>分段的共享与保护</strong> P187</li>
+</ul>
+<h3 id="页面置换算法-P174"><a href="#页面置换算法-P174" class="headerlink" title="页面置换算法 P174"></a><strong>页面置换算法</strong> P174</h3><ul>
+<li>最佳置换算法 Optimal</li>
+<li>先进先出页面置换算法 FIFO</li>
+<li>最近最久未使用 LRU</li>
+<li>最少使用置换算法 LFU</li>
+</ul>
+<h2 id="第六章-输入输出系统"><a href="#第六章-输入输出系统" class="headerlink" title="第六章 输入输出系统"></a>第六章 输入输出系统</h2><ul>
+<li><strong>I/O系统的基本功能：</strong>①隐藏物理设备的细节。②与设备的无关性。③提高处理机与I/O设备的利用率。④对I/O设备进行控制。⑤确保对设备的正确共享。⑥错误处理。</li>
+<li><strong>I/O通道：</strong>是一种特殊的处理机，具有执行I/O指令和通过执行通道I/O程序来控制I/O操作的能力<ul>
+<li>不同于一般处理机的是：①指令类型单一，主要局限于I/O操作。②通道没有自己的内存，与CPU共享。</li>
+<li>目的：建立独立的I/O操作，使一些由原来由CPU处理的I/O任务转由通道来承担</li>
+<li>通道类型：①字节多路通道。②数组选择通道。③数组多路通道。</li>
+</ul>
+</li>
+<li><strong>设施驱动程序的功能</strong>：<ul>
+<li>接收由与设备无关的软件发来的命令和参数，并将命令中的抽象要求转换为与设备相关的低层操作序列</li>
+<li>检查用户I/O请求的合法性，了解I/O设备的工作状态，传递与I/O设备操作有关的参数，设置设备的工作方式。</li>
+<li>发出I/O命令，如设备空闲则立即启动完成I/O操作，忙碌则将请求块挂在设备队列上等待。</li>
+<li>及时响应由设备控制器发来的中断请求，根据中断类型调用相应的中断处理程序处理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="与设备无关软件"><a href="#与设备无关软件" class="headerlink" title="与设备无关软件"></a><strong>与设备无关软件</strong></h3><ul>
+<li>早期OS应用程序使用<strong>物理设备名</strong>使用设备，当设备忙碌时系统无法分配给其他相同功能的设备，致使进程请求I/O失败而阻塞</li>
+<li><strong>逻辑设备</strong>是抽象的设备名。仅当所请求的一类设备全部分配完毕时进程会阻塞。</li>
+<li><strong>逻辑设备名到物理设备名的转换</strong><ul>
+<li>为了实现与设备的无关性，应用程序请求使用I/O设备时应当用逻辑设备名，但系统只识别物理设备名</li>
+<li>在系统中配置一张<strong>逻辑设备表</strong>，包括逻辑设备名，物理设备名，设备驱动程序的入口地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="假脱机系统"><a href="#假脱机系统" class="headerlink" title="假脱机系统"></a><strong>假脱机系统</strong></h3><ul>
+<li>假脱机技术：在联机情况下实现的同时外围操作的技术</li>
+<li>假脱机技术可将一台物理I/O设备虚拟为多台逻辑I/O设备，这样也就允许多个用户共享一台物理I/O设备，实现了设备的<strong>虚拟</strong>分配</li>
+<li><strong>特点：</strong>①提高了I/O的速度。②将独占设备改造为共享设备。③实现了虚拟设备功能。</li>
+</ul>
+<h3 id="缓冲区管理"><a href="#缓冲区管理" class="headerlink" title="缓冲区管理"></a>缓冲区管理</h3><ul>
+<li>是一个存储区域，由专门的硬件寄存器组成。一般情况下，更多是利用内存作为缓冲区。</li>
+<li>几乎所有I/O设备与处理机交换数据时都使用了缓冲区</li>
+<li>形式：单缓冲区，双缓冲区，环形缓冲区，循环缓冲区，公用缓冲池</li>
+<li>引入缓冲区的原因<ul>
+<li>缓和CPU与I/O设备间速度不匹配的矛盾</li>
+<li>减少对CPU的中断频率，放宽对CPU中断响应时间的限制</li>
+<li>解决速度颗粒不匹配的问题</li>
+<li>提高CPU和I/O设备之间的并行性</li>
+</ul>
+</li>
+</ul>
+<h3 id="早期的磁盘调度算法-P233"><a href="#早期的磁盘调度算法-P233" class="headerlink" title="早期的磁盘调度算法 P233"></a>早期的磁盘调度算法 P233</h3><p>目标是使磁盘的平均寻道时间最少</p>
+<ul>
+<li><strong>先来先服务 FCFS</strong>：按先后次序</li>
+<li><strong>最短寻道时间优先 SSTF</strong>：局部最优，贪心算法</li>
+</ul>
+<h2 id="第七章-文件管理"><a href="#第七章-文件管理" class="headerlink" title="第七章 文件管理"></a>第七章 文件管理</h2><ul>
+<li><strong>数据项：</strong>是最低级的数据组织形式。<ul>
+<li>基本数据项：用于描述一个对象的某种属性的字符集，也叫字段</li>
+<li>组合数据项：由若干个基本数据项组成，也叫组项</li>
+</ul>
+</li>
+<li><strong>记录：</strong>是一组相关数据项的集合，用于描述在一个对象在某方面的属性<ul>
+<li>关键字：唯一标识一个记录的数据项（主键/外键）</li>
+</ul>
+</li>
+<li><strong>文件：</strong>是指由创建者所定义的、具有文件名的一组相关元素的集合<ul>
+<li>有结构文件：文件由若干个相关记录组成</li>
+<li>无结构文件：被看作是一个字符流</li>
+<li>文件属性：包括文件类型，文件长度，文件的物理位置，文件的创立时间</li>
+</ul>
+</li>
+<li><strong>文件的结构</strong><ul>
+<li>逻辑结构：文件是由一系列的逻辑记录组成的，又称为文件组织</li>
+<li>物理结构：文件的存储结构</li>
+</ul>
+</li>
+<li><strong>文件控制块：</strong>为文件设置用于描述和控制文件的数据结构<ul>
+<li>含有三类信息：基本信息，存取控制信息，使用信息</li>
+</ul>
+</li>
+<li><strong>索引结点</strong><ul>
+<li>引入：将文件描述信息单独形成一个称为索引结点的数据结构</li>
+<li>磁盘索引结点：存放在磁盘上的，每个文件有唯一的一个磁盘索引结点</li>
+<li>内存索引结点：存放在内存中的，当文件被打开时，要将磁盘索引结点拷贝到内存的索引结点中</li>
+</ul>
+</li>
+<li><strong>单级文件目录：</strong>最简单的文件目录，整个文件系统中只建立一张目录表<ul>
+<li>优点：简单</li>
+<li>缺点：只能实现按名存取这一最基本功能，查找速度慢，不允许重名，不便于文件共享</li>
+</ul>
+</li>
+</ul>
+<h2 id="第八章、磁盘存储器的管理"><a href="#第八章、磁盘存储器的管理" class="headerlink" title="第八章、磁盘存储器的管理"></a>第八章、磁盘存储器的管理</h2><h3 id="外存的组织方式"><a href="#外存的组织方式" class="headerlink" title="外存的组织方式"></a>外存的组织方式</h3><ul>
+<li><strong>连续组织方式：</strong>连续分配方式，为每一个文件分配一组相邻接的盘块。<ul>
+<li><strong>文件结构：</strong>顺序文件结构。<strong>物理文件：</strong>顺序文件</li>
+<li><strong>优点：</strong>顺序访问容易，顺序访问速度快</li>
+<li><strong>缺点：</strong>①要求为一个文件分配连续的存储空间。②必须事先知道文件的长度，不适用于动态增长的文件。③不能灵活地删除和插入记录。</li>
+</ul>
+</li>
+<li><strong>链接组织方式：</strong>为文件分配多个不连续的盘块，再通过每个盘块上的链接指针，将属于一个文件的多个离散的盘块链接成一个链表。<ul>
+<li><strong>文件结构：</strong>链表。<strong>物理文件：</strong>链接文件</li>
+<li><strong>链接方式</strong><ul>
+<li>隐式链接：文件目录的每个目录表上，都含有指向链接文件第一个盘块和最后一个盘块的指针。只适用于顺序访问</li>
+<li>显示链接：把用于链接文件个物理块的指针显示地存放在内存的一张链接表（文件分配表 FAT）中</li>
+</ul>
+</li>
+<li><strong>优点：</strong>①消除了磁盘的外部碎片，提高了外存的利用率。②对插入、删除和修改记录都非常容易。③能适应文件的动态增长，无需事先知道文件大小</li>
+<li><strong>缺点：</strong>①不能支持高效的直接存取，对于较大的文件需要FAT中顺序查找许多盘块号。②FAT需占用较大的内存空间</li>
+</ul>
+</li>
+<li><strong>索引组织方式</strong><ul>
+<li><strong>单级索引组织方式</strong><ul>
+<li><strong>优点：</strong>支持直接访问</li>
+<li><strong>缺点：</strong>每建立一个索引文件都要分配一个索引块，对小文件来说利用率极低</li>
+</ul>
+</li>
+<li><strong>多级索引组织方式</strong><ul>
+<li><strong>优点：</strong>大大加快对大型文件的查找速度</li>
+<li><strong>缺点：</strong>访问一个盘块时需要启动的次数锁着索引级数的增加而增多</li>
+</ul>
+</li>
+<li><strong>增量式索引组织方式：</strong>全面照顾到小、中、大及特大型作业，采用多种组织方式来构成文件的物理结构</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件存储空间的管理"><a href="#文件存储空间的管理" class="headerlink" title="文件存储空间的管理"></a>文件存储空间的管理</h3><ul>
+<li><strong>空闲表法：</strong>连续分配方式，为每个文件分配一块连续的存储空间，类似内存的连续分配</li>
+<li><strong>空闲链表法：</strong>将所有的空闲盘区拉成一条空闲空闲链。<ul>
+<li>空闲盘块链：将磁盘上的所有空闲空间以盘块为单位拉成一条链，其中每个盘块都有指向后继盘块的指针</li>
+<li>空闲盘区链：将磁盘上的所有空闲盘区（每个盘区可包含若干盘块）拉成一条链。</li>
+</ul>
+</li>
+<li><strong>位示图：</strong>由所有盘块所对应的位构成一个集合。<ul>
+<li>通常用 <code>m*n</code> 个位数来构成位示图，并使 <code>m*n</code> 等于磁盘的总块数。</li>
+<li>盘块的分配和回收</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2024/10/22/241021%20%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20/">游戏编程模式-设计模式</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--��̬��������-->
+  <script type="text/javascript"
+    color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+</body>
+</html>
