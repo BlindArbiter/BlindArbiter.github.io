@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang='zh_CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>游戏编程模式-序列模式 - BlindArbiter</title>
+
+  
+    <meta name="description" content="最近在学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏编程模式-序列模式">
+<meta property="og:url" content="https://blindarbiter.github.io/2025/04/12/250412%20%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F-%E5%BA%8F%E5%88%97%E6%A8%A1%E5%BC%8F/">
+<meta property="og:site_name" content="BlindArbiter">
+<meta property="og:description" content="最近在学">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-13T16:01:50.610Z">
+<meta property="article:author" content="BlindArbiter">
+<meta property="article:tag" content="游戏编程模式">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://blindarbiter.github.io/about/avatar.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">BlindArbiter</div><div class="sub cap">人生苦短，不必设限</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">游戏编程模式-序列模式</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E7%BC%93%E5%86%B2%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">双缓冲模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5"><span class="toc-number">1.2.</span> <span class="toc-text">使用须知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">1.3.</span> <span class="toc-text">需要设计决策的地方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">游戏循环模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-number">2.1.</span> <span class="toc-text">关键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A7%E7%8E%87%EF%BC%88FPS%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">帧率（FPS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E6%AD%A5%E9%95%BF"><span class="toc-number">2.3.</span> <span class="toc-text">定时步长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E6%97%B6%E6%AD%A5%E9%95%BF"><span class="toc-number">2.4.</span> <span class="toc-text">变时步长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF"><span class="toc-number">2.5.</span> <span class="toc-text">使用情景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E7%9A%84%E5%9C%B0%E6%96%B9-1"><span class="toc-number">2.6.</span> <span class="toc-text">需要设计决策的地方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">更新方法模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.1.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5-1"><span class="toc-number">3.2.</span> <span class="toc-text">使用须知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E7%9A%84%E5%9C%B0%E6%96%B9-2"><span class="toc-number">3.3.</span> <span class="toc-text">需要设计决策的地方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">一些需要注意的</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/BlindArbiter" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a><a class="social" href="/" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">博客</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F/">游戏编程模式</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2025-04-11T16:00:00.000Z">2025-04-12</time></div></div>
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>游戏编程模式-序列模式</span></h1>
+<p>最近在学</p>
+<span id="more"></span>
+
+<p>游戏有一个独有的苛刻的要求——有趣，玩家需要的是既新奇又有平衡性的的体验。<br>所以游戏的迭代更新是很重要的？如果一个游戏要持续吸引玩家，要持久的发展的话。<br>但是光是更新迭代发布版本，而不对游戏做全面的测试检查的话，是一种很不负责的行为。</p>
+<h2 id="双缓冲模式"><a href="#双缓冲模式" class="headerlink" title="双缓冲模式"></a>双缓冲模式</h2><p>用序列的操作模拟瞬间或者同时发生的事情。</p>
+<p>定义缓冲类封装了<strong>缓冲区</strong>：一块能被修改的状态区域。<br>这个缓冲被增量地修改，但我们希望外部的代码对缓冲区的修改都视为单一的原子操作。<br>为了实现这点，类保存并维护两个缓冲的实例：<strong>下一缓冲</strong>和<strong>当前缓冲</strong>。</p>
+<p>从缓冲区中读取信息，总是读取当前的缓冲区。 往缓存区写入信息，总是在下一缓冲区上经进行。<br> 当改变完成后，一个交换操作会立刻将当前缓冲区和下一缓冲区交换，旧的缓冲区成为下一个重用的缓冲区。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li>我们需要维护一些被增量修改的状态。</li>
+<li>在修改到一半的时候，状态可能会被外部请求。</li>
+<li>我们想要防止请求状态的外部代码知道内部的工作方式。</li>
+<li>我们想要读取状态，而且不想等着修改完成。</li>
+</ul>
+<h3 id="使用须知"><a href="#使用须知" class="headerlink" title="使用须知"></a>使用须知</h3><p>不像其他较大的架构模式，双缓冲模式位于底层。<br>它对代码库的其他部分影响较小——大多数游戏甚至不会感到有区别。</p>
+<ul>
+<li><strong>交换本身需要时间</strong><br>交换操作必须是原子性的：在交换时，没有代码可以接触到任何一个状态。<br>通常交换过程跟修改指针一样快，如果交换消耗时间长于修改状态时间那就很坏了。</li>
+<li><strong>我们得保存两个缓冲区</strong><br>这个模式的另一个结果是增加了内存的使用，需要你在内存中一直保留两个状态的拷贝。<br>在内存受限的硬件设备上，是个苛刻的要求，要付出惨痛的代价。<br>如无法分配出两份内存，就需要保证状态在修改时不会被请求访问。</li>
+</ul>
+<h3 id="需要设计决策的地方"><a href="#需要设计决策的地方" class="headerlink" title="需要设计决策的地方"></a>需要设计决策的地方</h3><ul>
+<li><strong>缓冲区如何被交换？</strong><ul>
+<li><u>交换缓冲区的指针或者引用</u>：<br>速度快，但外部代码不能存储对缓存的永久指针，<br>缓冲区中的数据是两帧之前的数据，而不是上一帧的数据。</li>
+<li><u>在缓冲区之间拷贝数据</u>：<br>交换也许更花时间，<br>下一帧的数据和之前的数据相差一帧。</li>
+</ul>
+</li>
+<li><strong>缓冲的粒度如何？</strong><ul>
+<li><u>如果缓存是一整块</u>：<br>交换操作更简单。由于只有一对缓存，一个简单的交换就完成了。<br>如果可以改变指针来交换，那么不必在意缓冲区大小，只需几步操作就可以交换整个缓冲区。</li>
+<li><u>如果很多对象都持有一块数据</u>：<br>交换操作更慢。 为了交换，需要遍历整个对象集合，通知每个对象交换。<br>如果不需要缓存的状态，可以使用将“当前”和“下一个”指针概念，将其改为对象相关的相对偏移量。</li>
+</ul>
+</li>
+</ul>
+<h2 id="游戏循环模式"><a href="#游戏循环模式" class="headerlink" title="游戏循环模式"></a>游戏循环模式</h2><p>将游戏的进行和玩家的输入解耦，和处理器速度解耦。<br>是“游戏编程模式”的精髓。 几乎每个游戏都有，而在非游戏的程序几乎没有。</p>
+<h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><ul>
+<li>处理用户输入，但是不等待它，游戏循环在运转、渲染</li>
+<li>让游戏在一个与硬件无关的速度变量下运行</li>
+</ul>
+<h3 id="帧率（FPS）"><a href="#帧率（FPS）" class="headerlink" title="帧率（FPS）"></a>帧率（FPS）</h3><p>用实际时间来测算游戏循环运行的速度，就是游戏的“帧率”(FPS)。<br>如果游戏循环的更快，FPS就更高，游戏运行得更流畅更快。<br>可以理解成是图形处理器每秒更新的次数，例如60FPS，也就是每一秒更新60次，即0.016s更新一次。</p>
+<p>决定帧率的两个因素</p>
+<ul>
+<li> 一个是每帧要做多少工作</li>
+<li> 底层平台的速度</li>
+</ul>
+<h3 id="定时步长"><a href="#定时步长" class="headerlink" title="定时步长"></a>定时步长</h3><ul>
+<li><strong>原理</strong>：以固定时间间隔（如 60FPS 的 16.6ms）更新游戏逻辑，渲染帧率可以变化</li>
+<li><strong>优点</strong>：<ul>
+<li><strong>物理模拟稳定</strong>：适合需要精确物理计算的游戏，避免因帧率波动导致数值不稳定（如穿墙、速度异常）</li>
+<li><strong>确定性</strong>：相同输入下行为一致，便于调试和网络同步（如多人游戏）</li>
+<li><strong>逻辑与渲染分离</strong>：游戏逻辑不受渲染帧率影响</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li><strong>性能浪费或卡顿</strong>：若逻辑更新耗时超过步长时间，会导致帧率下降或需要跳帧</li>
+<li><strong>不匹配高帧率设备</strong>：固定步长可能无法充分利用高刷新率显示器</li>
+</ul>
+</li>
+</ul>
+<h3 id="变时步长"><a href="#变时步长" class="headerlink" title="变时步长"></a><strong>变时步长</strong></h3><ul>
+<li><strong>原理</strong>：每帧根据实际耗时<code>（ΔT）</code>更新逻辑，渲染和逻辑步长同步变化。</li>
+<li><strong>优点</strong>：<ul>
+<li><strong>流畅渲染</strong>：充分利用硬件性能，适应不同帧率设备（如高刷显示器）</li>
+<li><strong>资源高效</strong>：避免不必要的逻辑更新，适合性能波动大的平台（如移动端）</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li><strong>物理不稳定</strong>：<code>ΔT</code> 过大会导致碰撞检测失效或数值爆炸</li>
+<li><strong>非确定性</strong>：相同输入可能因帧率不同产生不同结果，难以调试和同步</li>
+<li><strong>依赖帧率</strong>：逻辑代码处理需要 <code>ΔT</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="使用情景"><a href="#使用情景" class="headerlink" title="使用情景"></a>使用情景</h3><ul>
+<li>库：自己把握游戏循环，并在其中调用库函数</li>
+<li>游戏引擎：引擎掌握游戏循环并调用你的代码</li>
+</ul>
+<h3 id="需要设计决策的地方-1"><a href="#需要设计决策的地方-1" class="headerlink" title="需要设计决策的地方"></a>需要设计决策的地方</h3><ul>
+<li><p><strong>如何管理能量消耗？</strong></p>
+<p>需要考虑的不仅仅是让游戏看上去很棒，同时尽可能少地使用CPU。<br>需要设置一个性能的上限：完成一帧之内所需的工作后，让CPU休眠。</p>
+<ul>
+<li><p><u>尽可能快地运行</u>：<br>游戏循环永远不会显式告诉系统休眠，相反，空闲的循环被划在提升FPS或者图像显示效果上了。<br>这会给玩家最好的游戏体验，但也会尽可能多地使用电量。</p>
+</li>
+<li><p><u>固定帧率</u>：</p>
+<p>比如移动游戏更加注意游戏的体验质量，而不是最大化图像画质。 很多这种游戏都会设置最大帧率。<br>如果游戏循环在分配的时间片消耗完之前完成，剩余的时间它会休眠。<br>这给了玩家“足够好的”游戏体验，也让电池轻松了一点。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>如何控制游戏速度？</strong></p>
+<ul>
+<li><u>固定时间步长，没有同步</u>：<br>简单，游戏速度直接受到硬件和游戏复杂度影响。</li>
+<li><u>固定时间步长，有同步</u>：<br>较简单，可能总需要做一些同步，游戏不会运行得太快，但可能运行的太慢。</li>
+<li><u>动态时间步长</u>：<br>不建议，虽然能适应并调整，但是让游戏不确定而且不稳定。</li>
+<li><u>固定更新时间步长，动态渲染</u>：<br>最有适应性，能适应并调整，避免运行得太快或者太慢，也更复杂，需要在实现中写更多东西。</li>
+</ul>
+</li>
+</ul>
+<h2 id="更新方法模式"><a href="#更新方法模式" class="headerlink" title="更新方法模式"></a>更新方法模式</h2><p>游戏世界管理对象集合。<br>每个对象实现一个<strong>更新方法</strong>模拟对象在<strong>一帧</strong>内的行为。每一帧，游戏循环更新集合中的每一个对象。<br>因此每个游戏实体应该<strong>封装它自己的行为</strong>，使得游戏循环保持整洁，便于增加和移除实体。</p>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>游戏中含有一系列对象或系统需要同步运转</li>
+<li>各个对象之间的行为基本相互独立</li>
+<li>对象行为与时间相关</li>
+</ul>
+<h3 id="使用须知-1"><a href="#使用须知-1" class="headerlink" title="使用须知"></a>使用须知</h3><ul>
+<li>将代码划分到一帧帧中会让它变得更加复杂</li>
+<li>需要在每帧结束时存储游戏状态来让下一帧继续</li>
+<li>所有对象逐帧模拟，但并非真的同步</li>
+<li>在更新期间修改对象列表必须谨慎</li>
+</ul>
+<h3 id="需要设计决策的地方-2"><a href="#需要设计决策的地方-2" class="headerlink" title="需要设计决策的地方"></a>需要设计决策的地方</h3><ul>
+<li><p><strong>将更新方法 <code>update()</code> 放在哪个类中?</strong></p>
+<ul>
+<li>实体类</li>
+<li>组件类：更新方法模式和组件模式享有同样的功能——让实体/组件独立更新自己。</li>
+<li>委托类：比如状态模式通过改变它委托的对象来改变行为，类型对象模式可以在同类实体间共享行为。</li>
+</ul>
+</li>
+<li><p><strong>如何处理隐藏的对象？</strong></p>
+<p>指的是一些暂时不需要更新的对象，比如被禁用的、在屏幕外的、或者未解锁的对象。</p>
+<ul>
+<li><u>使用单个存储所有对象的集合</u>：<br>处理不活跃对象会浪费时间，要么检查其“是否启用”的标识，或调用空方法。</li>
+<li><u>两个集合，一个单独维护活跃对象，另一个维护全部实体</u>：<br>使用了额外的内存管理第二个集合，当需要所有实体时，这个单独活跃对象的集合是多余的。<br>但在游戏对速度比内存要求更高时是值得的。</li>
+<li><u>两个集合，一个活跃对象集合，另一个只包含不活跃实体</u>：<br>得保持集合同步。当对象创建或完全销毁时（不是暂时停用），你得修改全部对象集合和活跃对象集合。</li>
+</ul>
+<p>方法选择的度量标准是不活跃对象的可能数量。<br>数量越多就尽可能用分离的集合，避免在核心游戏循环中用到它们。</p>
+</li>
+</ul>
+<h2 id="一些需要注意的"><a href="#一些需要注意的" class="headerlink" title="一些需要注意的"></a>一些需要注意的</h2><ul>
+<li>更新方法模式，游戏循环模式和组件模式，是构建游戏引擎核心的三位一体。</li>
+<li><strong>优先使用“对象组合”，而非“类继承”</strong><ul>
+<li>继承难以维护，没人可以不拆解它们来管理庞杂的对象层次。</li>
+<li>可以适度使用也不必完全禁止使用，执着于避免使用和执着于使用一样糟糕。</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明作者BlindArbiter。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2025/04/08/250408%20%E3%80%8A%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94%E3%80%8B/">《被讨厌的勇气》</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></div><div class="sitemap-group"><span class="fs14">友链</span><a target="_blank" rel="noopener" href="https://ShModifier.github.io/">Modifier</a><a target="_blank" rel="noopener" href="https://drun1baby.top/">Drunkbaby</a><a target="_blank" rel="noopener" href="https://ghdemi.github.io/">GhDemi</a><a href="/about">其他友链</a></div><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://github.com/BlindArbiter">GitHub</a></div></div><div class="text"><center> <br /> <!--不蒜子计数器--> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <script type="text/javascript"> function show_runtime() { window.setTimeout("show_runtime()", 1000); X = new Date("2/20/2023 00:00:00"); Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000; a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60); runtime_span.innerHTML = "⏱️小岛已流浪 " + A + "天" + B + "小时" + C + "分" + D + "秒" } show_runtime(); </script> <span id="runtime_span"></span> <p>Copyright &copy; 2022&nbsp;-&nbsp;2023 <a href="/" style="text-decoration:none">BlindArbiter</a> </p> <p>Powered by <a href="https://hexo.io" target="_blank" style="text-decoration:none">Hexo</a> | Theme - <a href="https://github.com/xaoxuu/hexo-theme-stellar" target="_blank" rel="nofollow noopener" style="text-decoration:none"><span>Stellar</span></a></p> </center></div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--��̬��������-->
+  <script type="text/javascript"
+    color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+</body>
+</html>
